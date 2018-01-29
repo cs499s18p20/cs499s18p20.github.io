@@ -3,9 +3,13 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
  */
+html {
+  height: 100%;
+}
 
 body {
   padding-top: 54px;
+  height: 100%;
 }
 
 @media (min-width: 992px) {
@@ -39,4 +43,8 @@ header {
 
 .portfolio-item {
   margin-bottom: 30px;
+}
+
+footer {
+  height: 80px;
 }
