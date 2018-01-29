@@ -14,6 +14,19 @@ body {
   }
 }
 
+header {
+  width: 100%;
+  height: 40vh;
+  min-height: 200px;
+  background-size: cover;
+  background-image: url("https://cdn-images-1.medium.com/max/1500/1*m2gDBT_nc-iE7R4AM3sHBQ.jpeg");
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
 .carousel-item {
   height: 65vh;
   min-height: 300px;
