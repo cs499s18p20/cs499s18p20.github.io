@@ -64,7 +64,112 @@
       <div class="row">
         <div class="col-lg-10 col-centered">
           <h1>Project Requirements</h1>
-          <p>To be added after meeting</p>
+          <hr>
+          <h2>Essential Requirements</h2>
+          <ol>
+            <li>
+              <strong>Successful reproduction of an object recognition tutorial.</strong> We will be following 
+              <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md">this guide</a> that was shared with us by 
+              the customer. Difficulty Estimate: 1. Time Estimate: 1.
+            </li>
+            <li>
+              <strong>Creation of a library of annotated simple card images.</strong> This library of images will be used throughout the project to train the model. 
+              As we work to improve the model to recognize more advanced patterns, this library will be expanded as necessary for training. Annotation will likely be 
+              done using <a href="https://github.com/tzutalin/labelImg">this tool</a>. Difficulty Estimate: 1. Time Estimate: 10.
+            </li>
+            <li>
+              <strong>Addition of simple "card objects" to the model trained in the object recognition tutorial.</strong> This will require adding our library of 
+              annotated card images to the training data used in the tutorial. The goal here is to have the neural net successfully recognize and identify images of 
+              cards. It will not be able to identify suit or value at this point. Difficulty Estimate: 11. Time Estimate: 8
+            </li>
+            <li>
+              <strong>Removal of the original dataset from the tutorial.</strong> This will leave our model with only the card images to train from and will be a 
+              turning point in that our project will now be quite disjoint from the original tutorial we started with. Difficulty Estimate: 11. Time Estimate: 7
+            </li>
+            <li>
+              <strong>Addition of the ability to differentiate between suits of cards.</strong> This may or may not cover all 4 suits depending on the time remaining 
+              once we reach this point in the project. The original goal will be to differentiate between two different suits. Difficulty Estimate: 12. 
+              Time Estimate: 9.
+            </li>
+            <li>
+              <strong>Addition of the ability to differentiate between numbers of cards.</strong> This will not likely cover all 13 different values since that would 
+              require the creation of a massive library of annotated images. It should be able to differentiate between a specifically chosen group of card values.
+              Difficulty Estimate: 11. Time Estimate: 9.
+            </li>
+          </ol>
+          <hr>
+          <h2>Stretch Goals</h2>
+          <ol>
+            <li>
+              <strong>Ability to identify all 52 cards.</strong> This is an extension on the last two essential requirements and just expands these to cover all cards
+              in the deck. 
+            </li>
+            <li>
+              <strong>Ability to identify overlapping and truncated card images.</strong> This would require the creation of a new dataset of images that would allow
+              us to train the model to recognize cards even in these non-ideal forms. 
+            </li>
+            <li>
+              <strong>Mobile or web interface to allow remote image identification.</strong> This would allow a user to take an image on their phone and submit it
+              to the neural net and receive immediate feedback about what cards are in the image. 
+            </li>
+          </ol>
+          <hr>
+          <h2>Schedule and Milestones</h2>
+          <ul>
+            <li>
+              <strong>Week 1:</strong> Finish Tutorial (Requirement 1) and successfully run using Google Cloud Platform.
+            </li>
+            <li>
+              <strong>Week 2:</strong> Finish creation of simple dataset (Requirement 2) and train the existing model to see if it is able to
+              properly recognize the images of cards (Requirement 3).
+            </li>
+            <li>
+              <strong>Week 3:</strong> Refine the simple dataset and continue working with the model until it is able to successfully recognize all
+              simple card images in the dataset (Requirement 3).
+            </li>
+            <li>
+              <strong>Week 4:</strong> Remove the original training data from the model leaving only the card images (Requirement 4).
+            </li>
+            <li>
+              <strong>Week 5:</strong> Continue to refine existing model, potentially adding more images to the training sets until it is correctly
+              able to identify all cards in the test dataset. 
+            </li>
+            <li>
+              <strong>Week 6:</strong> Begin training and testing with the next level dataset to train differentiation between suits (Requirement 5).
+            </li>
+            <li>
+              <strong>Week 7:</strong> Continue work from week 6 (Requirement 5).
+            </li>
+            <li>
+              <strong>Week 8:</strong> Begin training and testing with the next level dataset to train differentiation between card values (Requirement 6).
+            </li>
+            <li>
+              <strong>Week 9:</strong> Continue work from week 8 (Requirement 6) and add more suits and values if possible (Stretch 1).
+            </li>
+            <li>
+              <strong>Week 10:</strong> Attempt to train overlapping, obstructed, and truncated card image recognition (Stretch 2).
+            </li>
+          </ul>
+          <hr>
+          <h2>Platforms, Tools, and Languages</h2>
+          <ul>
+            <li>
+             <a href="https://www.tensorflow.org/">TensorFlow:</a> Google's open-source machine learning framework. 
+            </li>
+            <li>
+              <a href="https://github.com/tzutalin/labelImg">labelImg:</a> An open-source image annotation tool.
+            </li>
+            <li>
+              <a href="https://cloud.google.com">Google Cloud Platform:</a> Google's suite of cloud based computing services.
+            </li>
+            <li>
+              <a href="https://www.python.org/">Python:</a> The preferred programming language for working with TensorFlow.
+            </li>
+            <li>
+              Internal tools: It is very likely that we will find it helpful to build some of our own tools (for example, a script to rotate images in order
+              to create more test images from a single picture). These will be added as we develop them. Stretch Goal 3 may be another tool that we find useful.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
