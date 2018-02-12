@@ -67,14 +67,43 @@
           <hr>
           <div class="card">
             <h3 class="card-header">
-              Week 1
+              Weeks 1-3
             </h3>
             <div class="card-body">
               <h4 class="card-title">
-                Entry title
+                Beginning the project
               </h4>
               <p class="card-text">
-                Entry text goes here...
+                This was the first week that we really got started with our project. We previously met with our customer, 
+                hammered out the initial ideas for our requirements and put together a pretty simple schedule to at
+                least keep us on the right path for the next few weeks until we can put together something of more substance.
+                According to our requirements and our schedule, this first week was originally planned to be the week that we
+                finished the object-recognition tutorial hosted by Google on the TensorFlow repository. We determined
+                that it would probably be best if each of us did the tutorial independantly to get familiar with the tools
+                that we will be using throughout the semester. In the end, we did achieve this goal, but just barely. I was
+                the only one on the team to use a linux machine to work through the tutorial, and it soon became obvious
+                that it was really designed for linux and not windows so I had a much easier time than most of the team. 
+                Another team member had a mac which also proved to work quite well with the tutorial.
+                This wasn't the only issue we ran into, however. The tutorial had been designed to work with TensorFlow 1.2. 
+                This posed a problem since the rest of the TensorFlow repository had changed very significantly since 1.2
+                which rendered the tutorial out-of-date and incorrect in some cases. After working through it, I was 
+                unable to get any of my training
+                jobs to start successfully on the cloud platform. After doing some research, trying a number of fixes, and
+                ultimately starting about 10 failed jobs, I was able to find a fix. Luckily, with github, it is easy to roll
+                back a repository to a previous state. So, by rolling the entire TensorFlow repository back to 1.2, I was finally
+                able to get the tutorial to work and run machine learning training and evaluation jobs on the Google Cloud
+                Platform. Unfortunately all of the team didn't reach this point 
+                (trying to do this with Windows is significantly more
+                challenging) but I think since we did get most of the way there, we can call this week a success! I originally
+                trained the model using a "standard_cpu" machine offered by Google Cloud Platform but that proved to be incredibly
+                slow (20 seconds per simulation step). By changing to using 5 "standard_gpu" machines, this sped up to about 1
+                second per step and the model was able to converge and predict with relatively high accuracy the breeds of
+                cats and dogs based on images (this was the purpose of the tutorial). For the time being, we will probably
+                continue to work with TensorFlow 1.2 but may revisit using TensorFlow 1.4 in the future. TensorFlow 1.4 was 
+                released very recently and still doesn't seem to fully work on Google Cloud Platform anyway, so I don't think
+                this is a huge loss. Moving forward, our next goal will be to add annotated images of cards to the
+                current dataset containing cats and dogs. The idea is to get the model to accurately identify cards as separate
+                objects than cats and dogs. It should be a fun week!
               </p>
             </div>
           </div>
