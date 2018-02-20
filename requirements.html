@@ -70,31 +70,29 @@
             <li>
               <strong>Successful reproduction of an object recognition tutorial.</strong> We will be following 
               <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md">this guide</a> that was shared with us by 
-              the customer. Difficulty Estimate: 1. Time Estimate: 1.
+              the customer.
             </li>
             <li>
               <strong>Creation of a library of annotated simple card images.</strong> This library of images will be used throughout the project to train the model. 
               As we work to improve the model to recognize more advanced patterns, this library will be expanded as necessary for training. Annotation will likely be 
-              done using <a href="https://github.com/tzutalin/labelImg">this tool</a>. Difficulty Estimate: 1. Time Estimate: 10.
+              done using <a href="https://github.com/tzutalin/labelImg">this tool</a>.
             </li>
             <li>
               <strong>Addition of simple "card objects" to the model trained in the object recognition tutorial.</strong> This will require adding our library of 
               annotated card images to the training data used in the tutorial. The goal here is to have the neural net successfully recognize and identify images of 
-              cards. It will not be able to identify suit or value at this point. Difficulty Estimate: 11. Time Estimate: 8
+              cards. It will not be able to identify suit or value at this point.
             </li>
             <li>
               <strong>Removal of the original dataset from the tutorial.</strong> This will leave our model with only the card images to train from and will be a 
-              turning point in that our project will now be quite disjoint from the original tutorial we started with. Difficulty Estimate: 11. Time Estimate: 7
+              turning point in that our project will now be quite disjoint from the original tutorial we started with.
             </li>
             <li>
               <strong>Addition of the ability to differentiate between suits of cards.</strong> This may or may not cover all 4 suits depending on the time remaining 
-              once we reach this point in the project. The original goal will be to differentiate between two different suits. Difficulty Estimate: 12. 
-              Time Estimate: 9.
+              once we reach this point in the project. The original goal will be to differentiate between two different suits.
             </li>
             <li>
               <strong>Addition of the ability to differentiate between numbers of cards.</strong> This will not likely cover all 13 different values since that would 
-              require the creation of a massive library of annotated images. It should be able to differentiate between a specifically chosen group of card values.
-              Difficulty Estimate: 11. Time Estimate: 9.
+              require the creation of a massive library of annotated images. It should be able to differentiate between a specifically chosen group of card values.         
             </li>
           </ol>
           <hr>
@@ -150,6 +148,25 @@
               <strong>Week 10:</strong> Attempt to train overlapping, obstructed, and truncated card image recognition (Stretch 2).
             </li>
           </ul>
+		  <hr>
+          <h2>Sizing Estimate</h2>
+		  <div>
+		  <p>
+			 Story points are used to estimate the size and difficulty of the project.
+		  </p>
+		  <p>These points range from 1, for the least difficult of tasks, to 100, for the most difficult 
+		     tasks known to man (think np hard problems).
+		  </p>
+		  </div>
+          <ol>
+            <strong><li><p>Finish tutorial</p></li></strong><p>Story Points: 1</p>
+			<strong><li><p>Create simple dataset and begin training model</p></li></strong><p>Story Points: 1</p>
+			<strong><li><p>Refine dataset and continue training model</p></li></strong><p>Story Points: 10</p>
+			<strong><li><p>Remove original training data from model, leaving only card images</p></li></strong>
+				<p>Story Points: 11</p>
+			<strong><li><p>Add ability to differentiate between suits of cards</p></li></strong><p>Story Points: 12</p>
+			<strong><li><p>Add ability to differentiate between points of cards</p></li></strong><p>Story Points: 11</p>
+		  </ol>
           <hr>
           <h2>Platforms, Tools, and Languages</h2>
           <ul>
