@@ -110,7 +110,7 @@
                 Now the real work begins with annotating the images.
                 </p>
                 <p>
-                Here is a link to the script's github repository: <a href="https://github.com/Awallky/modify_images">script</a>
+                Here is a link to the script's github repository: <a href="https://github.com/donaldvenus/models/scripts">script</a>
                 </p>
               </p>
             </div>
@@ -127,6 +127,9 @@
                 Spent some time developing the project presentation Powerpoint slides. Also updated the script that modifies the annotation .xml files 
                 created by the labelimg application. Specifically, I changed the file type in the path label to be set as a ".jpg" file. I also scheduled
                 the group meeting times and discussed some tools we could use to make our lives easier when developing the project data and annotations. 
+                Finaslly, I resized the images I contributed to the data set from 4000x3000 to 300x300 and had to re-annotate the images. We found that the image sizes were too large 
+                and during training, they would consume ovver 100 GB of memory before the server would kill the training attempt. So, we realized thast we needed smaller 
+                image resolutions to prevent this from happening.
               </p>
             </div>
           </div>
