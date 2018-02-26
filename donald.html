@@ -138,6 +138,69 @@
               </p>
             </div>
           </div>
+
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              February 18 - 24
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Promising Initial Results!
+              </h4>
+              <p class="card-text">
+                This week, we used the images collected last week to begin training a TensorFlow model to detect cards in images.
+                My primary contribution this week was taking all of the images the group collected last week and using them to
+                train a model on the Google Cloud Platform. While originally I thought this task would be fairly straightforward
+                (after going through the tutorial a couple weeks ago), I soon found that this was going to be quite the involved
+                task. 
+                <br>
+                <br>
+                Slight differences in the annotations and filenames used by each individual for the card images made just
+                getting the data set into a standard form quite the challenge. After that, altering the tutorial to actually use
+                our data set instead of the pets data set required the manipulation of a large number of scripts and configuration
+                files. In order to facilitate this, I set up a new repository <a href="http://github.com/donaldvenus/models">here</a>
+                that contains all of the new files for the cards data set as well as all the important library files necessary
+                to properly setup a model for training on the cloud. 
+                <br>
+                <br>
+                The next issue was the fact that we used rather large images (in some cases images with 4k resolution!). This was such 
+                an issue that we actually kept running into memory issues on the cloud with our memory usage surpassing 80 gigabytes for
+                training. We would always hit the memory cap and cause the job to fail. After doing some research online, I was able to
+                resolve this by limiting the batch queue size at the expense of training speed.
+                <br>
+                <br>
+                After finally getting the job to successfully run for about 2 hours on 10 cloud-based GPUs, we began to get some very
+                promising results. The images below show the identifications that the neural net was able to make after this training.
+                As you can see, the results are very promising, but they are definitely not perfect and there is still a lot of room
+                for improvement.
+                <br>
+                <br>
+                <img src="./photos/initial_results_1.png">
+                <br>
+                This image shows the correct identification of a King of Hearts with 99% certainty!
+                <br>
+                <br>
+                <img src="./photos/initial_results_2.png">
+                <br>
+                This image shows the proper identification of a card object but as you can see, it is mislabled as a King of Hearts rather
+                than a Queen of Hearts. 
+                <br>
+                <br>
+                <img src="./photos/initial_results_3.png">
+                <br>
+                This image shows the proper identification of the King of Hearts with 97% certainty but the misidentification of a tag hanging
+                from the blinds as a Queen of Hearts.
+                <br>
+                <br>
+                In order to improve our results, we decided to resize all of our images down to about 320x240 pixels. This serves the purpose
+                of greatly speeding up the training time as well as allowing our model to generalize better since it is less likely to
+                overtrain on low resolution images. For my contribution, I resized and reannotated all 240 of the images I took
+                last week. This week we will be training with these new smaller images and I am excited to see
+                what kind of results we are able to achieve. 
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
