@@ -80,37 +80,28 @@
               done using <a href="https://github.com/tzutalin/labelImg">this tool</a>.
             </li>
             <li>
-              <strong>Addition of simple "card objects" to the model trained in the object recognition tutorial.</strong> This will require adding our library of 
-              annotated card images to the training data used in the tutorial. The goal here is to have the neural net successfully recognize and identify images of 
-              cards. It will not be able to identify suit or value at this point.
+              <strong>Creation of an initial model to identify 4 different cards.</strong> This will require using our library of annotated card images
+              to create a model like was created in the tutorial. The goal here is to have the neural net successfully recognize and identify images of cards.
             </li>
             <li>
-              <strong>Removal of the original dataset from the tutorial.</strong> This will leave our model with only the card images to train from and will be a 
-              turning point in that our project will now be quite disjoint from the original tutorial we started with.
+              <strong>Creation of a model to identify 24 different cards.</strong> This be a process that continues throughout the semester as we train our model to identify a greater number of different cards. Our current goal is to be able to identify all of the cards used in
+              the game of Euchre.
             </li>
             <li>
-              <strong>Addition of the ability to differentiate between suits of cards.</strong> This may or may not cover all 4 suits depending on the time remaining 
-              once we reach this point in the project. The original goal will be to differentiate between two different suits.
-            </li>
-            <li>
-              <strong>Addition of the ability to differentiate between numbers of cards.</strong> This will not likely cover all 13 different values since that would 
-              require the creation of a massive library of annotated images. It should be able to differentiate between a specifically chosen group of card values.         
+              <strong>Integration of the model with a web-based user interface.</strong> This will be a very simple user interface that
+              allows a user to upload an image of cards and will return the annotated image with a list of all of the cards in the picture.
             </li>
           </ol>
           <hr>
           <h2>Stretch Goals</h2>
           <ol>
             <li>
-              <strong>Ability to identify all 52 cards.</strong> This is an extension on the last two essential requirements and just expands these to cover all cards
-              in the deck. 
+              <strong>Ability to identify entire hands of cards.</strong> This would allow a user to submit an image of their hand and 
+              recieve an identification of the hand as a whole. 
             </li>
             <li>
-              <strong>Ability to identify overlapping and truncated card images.</strong> This would require the creation of a new dataset of images that would allow
-              us to train the model to recognize cards even in these non-ideal forms. 
-            </li>
-            <li>
-              <strong>Mobile or web interface to allow remote image identification.</strong> This would allow a user to take an image on their phone and submit it
-              to the neural net and receive immediate feedback about what cards are in the image. 
+              <strong>Expansion of the web application to provide recommendations.</strong> This would allow a user to submit an image of
+              their hand and be provided with the best possible play they can make in a given situation.
             </li>
           </ol>
           <hr>
@@ -172,14 +163,12 @@
 				<p>Story Points: 1</p>
 			<strong><li><p>Create simple dataset, add it to the existing dataset, and begin training model</p></li></strong>
 				<p>Story Points: 1</p>
-			<strong><li><p>Refine dataset and continue training model</p></li></strong>
+			<strong><li><p>Creation of an initial model to identify 4 different cards.</p></li></strong>
 				<p>Story Points: 10</p>
-			<strong><li><p>Remove original training data from model, leaving only card images</p></li></strong>
-				<p>Story Points: 11</p>
-			<strong><li><p>Add ability to differentiate between suits of cards</p></li></strong>
+			<strong><li><p>Creation of a model to identify 24 different cards.</p></li></strong>
 				<p>Story Points: 12</p>
-			<strong><li><p>Add ability to differentiate between points of cards</p></li></strong>
-				<p>Story Points: 11</p>
+			<strong><li><p>Integration of the model with a web-based user interface.</p></li></strong>
+				<p>Story Points: 10</p>
 		  </ol>
           <hr>
           <h2>Platforms, Tools, and Languages</h2>
