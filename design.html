@@ -106,39 +106,41 @@
         <div class="col-lg-10 col-centered">          
           <h2>Module Description and Data Flow</h2>      
           <br>
-          <img src="./photos/project_design_model.JPG">
-          <br>
           This image is the design for how the model is trained. The Gogle Cloud Platform is leveraged to make use of their powerful computer hardware
           instead of commercial hardware, which pales in comparison to the computing power of these GPUs. Using their Machine Learning Engine, a 
           card recognition model is developed to gain the ability to determine the cards provided in an image.
           <br>
+          <img src="./photos/project_design_model.JPG">
           <br>
-          <img src="./photos/project_design_webapp.JPG">
           <br>
           This image is the web application design for the user interface. They would select an image from file explorer and select "send"
-          to be sent to the server, which hosts the model, in order to evaluate what cards are in the hand.
+          to be sent to the server, which hosts the model, in order to evaluate what cards are in the hand.     
           <br>
+          <img src="./photos/project_design_webapp.JPG">
+          <br>          
           <br>
           Training the model was usually performed from this screen: The Google Cloud Platform’s shell, which hosted a Linux environment 
           and proved especially useful for those with a Windows based PC.
           <br>
           <img src="./photos/shell_terminal_img.png">
-          <br>         
+          <br>
+          <br>
         </div>                 
       </div>  
       <div class="row">        
         <div class="col-lg-10 col-centered">          
           <h2>User Interface Design</h2>      
           <br>
-          First, the user will be able to go to the application web page and use this simple UI to upload a photo to the server.
-          <br>
+          First, the user will be able to go to the application web page and use this simple UI to upload a photo to the server.          
           <br>
           <img src="./photos/UI_Design.jpg">
+          <br>
           <br>
           Once clicking “upload photo”, the user will then be shown a divided page: one side will hold their image along with the other 
           side showing a loading screen. 
           <br>
           <img src="./photos/User_Screen1.jpg">
+          <br>
           <br>
           After the server has received the image, used the model to predict the cards held in the image, and returned the resulting image 
           and labels, the user will be shown a screen like this:
