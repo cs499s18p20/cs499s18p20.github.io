@@ -67,13 +67,43 @@
         <div class="col-lg-10 col-centered">
           <h1>Project Design</h1>
           <p>
-            <strong>Overview:</strong> The main purpose of this project is to train a neural net to recognize and identify all 
-            Euchre cards in an image. A simple, web-based user interface will be provided so that a user may select a file fromn their
-            file explorer and submit it to the server in order to determine what cards are contained in the image/hand. 
-          </p>     
-        </div>                 
+            <strong>Overview:</strong> Our project involves creating a dataset of card images and labeling them in order to train a 
+            neural network to identify playing cards from a standard deck. The cards that will be used for this project include those cards 
+            involved in playing a game of Euchre, which includes all cards valued from 9 to A. This allows for a complete set of cards and 
+            allows the group to create a web application to interface with the model. Once the model has been developed to accurately predict 
+            any of the 24 possible cards in a Euchre deck, it will then be deployed onto our Web application. A server will host the model and 
+            handle requests to identify cards within an image. 
+          </p>
+          <h2>Environments and Languages</h2>
+          <p>
+            The following tools and environments will be used to develop the neural network:
+            <ul>
+              <li>Linux/Unix OS, Mac OSX</li>  
+              <li>TensorFlow: Google's open-source machine learning framework</li>
+              <li>labelImg: An open-source image annotation tool</li>
+              <li>Google Cloud Platform: Google's suite of cloud based computing services</li>
+              <li>Python 2.7/3.6: The preferred programming language for working with TensorFlow</li>
+              <li>PyScripter: A user-friendly, interactive Python IDE</li>
+              <li>Internal tools: It is very likely that we will find it helpful to build some of our own tools (for example, a script to rotate 
+                images in order to create more test images from a single picture). These will be added as we develop them. Stretch Goal 3 may be 
+                another tool that we find useful. (Typically developed in Python)</li>
+            </ul>      
+          </p>
+          <p>
+            The following tools will be used to develop the web application:
+            <ul>
+              <li>Linux/Unix OS, Mac OSX, Windows 8.1/10</li>
+              <li>Python 2.7/3.6: The preferred programming language for working with TensorFlow</li>
+              <li>PyScripter: A user-friendly, interactive Python IDE</li>
+              <li>Django: A Python framework used for developing server-side software</li>
+              <li>HTML, CSS</li>
+              <li>JavaScript: A versatile, interactive web programming language</li>
+            </ul>
+          </p>
+        </div>
       </div>
       <div class="row">
+        <h2>Module Description and Data Flow</h2>      
         <div class="col-lg-10 col-centered">          
           <br>
           <img src="./photos/project_design_model.JPG">
@@ -89,8 +119,33 @@
           to be sent to the server, which hosts the model, in order to evaluate what cards are in the hand.
           <br>
           <br>
+          Training the model was usually performed from this screen: The Google Cloud Platform’s shell, which hosted a Linux environment 
+          and proved especially useful for those with a Windows based PC.
+          <br>
+          <img src="./photos/shel_terminal_img.png">
+          <br>         
         </div>                 
-      </div>
+      </div>  
+      <div class="row">
+        <h2>User Interface Design</h2>      
+        <div class="col-lg-10 col-centered">          
+          <br>
+          First, the user will be able to go to the application web page and use this simple UI to upload a photo to the server.
+          <br>
+          <br>
+          <img src="./photos/UI_Design.jpg">
+          <br>
+          Once clicking “upload photo”, the user will then be shown a divided page: one side will hold their image along with the other 
+          side showing a loading screen. 
+          <br>
+          <img src="./photos/User_Screen1.jpg">
+          <br>
+          After the server has received the image, used the model to predict the cards held in the image, and returned the resulting image 
+          and labels, the user will be shown a screen like this:
+          <br>
+          <img src = "./photos/User_Screen2.jpg">
+          <br>
+          <br>
     </div>
     <!-- /.container -->
 
