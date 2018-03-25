@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CS499 Group 20</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">CS499 Group 20</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUpdates" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Updates
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownUpdates">
+                <a class="dropdown-item" href="adam.html">Adam Walls</a>
+                <a class="dropdown-item" href="stephanie.html">Stephanie McCormick</a>
+                <a class="dropdown-item" href="rupal.html">Rupal Shah</a>
+                <a class="dropdown-item" href="donald.html">Donald Venus</a>
+                <a class="dropdown-item" href="chelsea.html">Chelsea Kuball</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Project
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProject">
+                <a class="dropdown-item" href="introduction.html">Introduction</a>
+                <a class="dropdown-item" href="requirements.html">Requirements</a>
+                <a class="dropdown-item" href="calendar.html">Our Calendar</a>
+                <a class="dropdown-item" href="design.html">Project Design</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <hr>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <h1>Rupal's Updates</h1>
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              Week 1 (February 05 - 11, 2018)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Getting Started
+              </h4>
+              <p class="card-text">
+                 Up to this week, along with the rest of my team, I have mainly been organizing and setting up how the rest of the semester will 
+                 play out. We met last Saturday (2/03/2018) for a few hours in order to plan out our schedule for the remaining weeks of the 
+                 semester, detailing what we hope to accomplish and how long each step to the end goal will take. In addition, we collaborated in
+                 writing out the requirements, seen <a href="https://cs499s18p20.github.io/requirements.html">here</a>. 
+                 Since we had a new team member join us, I helped catch her up to speed as to what we discussed with the customers when we met 
+                 them for the first time, as well as edited the webpage to include her information.
+              </br>
+              </br>
+                 Additionally, I have been attempting to get through a <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md">TensorFlow tutorial</a> 
+                 that our customers recommended we test out before delving any deeper into the project. It has proven to be difficult on Windows 10,
+                 so I am still in the process of modifying some of the steps given to accommodate my machine. 
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-header">
+              Week 2 (February 12 - 18, 2018)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Baby Steps
+              </h4>
+              <p class="card-text">
+                This week, I was finally able to complete the <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md">TensorFlow tutorial</a>
+                mentioned in last week's update. Thanks to Donald's suggestion, I used the <a href="https://console.cloud.google.com/">Google Cloud Shell</a>
+                to finish working through the steps of the tutorial. This allowed us to become more fimiliar with TensorFlow and 
+                TensorBoard, as well as get an idea of how to train and test on annotated images.
+              </br>
+              </br>
+                The rest of the week mainly consisted of data collection. We focused on collecting images of four cards: the ace of diamonds,
+                the king of hearts, the queen of hearts, and the jack of hearts. Each of us took 60 pictures of each card in different
+                angles and positions on varying backgrounds. This is in order to create a very diverse training set, allowing
+                for image recognition to be more inclusive. After taking the various images, I labeled each one using an 
+                <a href="https://github.com/tzutalin/labelImg">LabelImg</a>, a program created solely to annotate images. A main 
+                portion of this project relies on a wide and various data set to train on - to accomplish this, our
+                plan is to repeat this data collection and annotation process during the upcoming weeks for more cards.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-header">
+              Week 3 (February 19 - 25, 2018)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Growing Pains
+              </h4>
+              <p class="card-text">
+                The whole process of this project is very new to all of us, but we are definitely learning! We quickly realized that our
+                images from last week were way too large for our training model. We decided to re-size our images to a width of 320 pixels, 
+                preparing for if we decide to create a mobile application. Because we re-size all of our images, this meant we also had to
+                re-annotate all of our images. Another problem we ran into was the inconsistency amongst all of our labelling formats. To 
+                avoid this problem, we communicated to annotate our images by utilizing a modified version of "camel case", in which the
+                first word's first letter is also capitalized (ex: AceOfDiamonds). 
+              </br>
+              </br>
+                We focused the rest of our time in preparing for the Midterm Presentation. My team member Adam Walls put together a draft
+                of a PowerPoint presentation earlier this week and I modified and edited it, creating a second version. Adam's version focused
+                on content (he did a wonderful job with this!), while mine was more focused on communicating the information in a concise 
+                manner that anyone without prior knowledge of the subject would be able to understand. We planned to meet today to practice 
+                the presentation before our PresentationU appointment, scheduled for next week. 
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-header">
+              Week 4 (February 26 - March 4, 2018)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Reality-Check
+              </h4>
+              <p class="card-text">
+                When we were first assigned this project, we assumed that our end goal would be to be able to identify different types
+                of poker hands in an image of playing cards. However, after we met with our customers the first week, we realized that this
+                was more of a stretch goal and would most likely not be achieved due to the lack of time. This week, we sat down and discussed
+                our priorities. We all realized that we wanted to be able to create a fully functioning model, rather than one that had limitations. The limitations
+                would be caused by the fact that we would not have enough time to train on all 52 cards. In order to achieve our goal of a complete
+                model, we decided to change the game of poker to one of euchre, since it only requires 24 cards, rather than the whole deck. 
+                Though the game is different, the idea is the same: we want to be able to recognize different types of euchre hands in an image
+                of playing cards.
+              </br>
+              </br>
+                We also started to prepare for our Midterm Presentation. On Monday, we went to PresentationU to get feedback on our slides. 
+                We ran through our presentation in an informal manner with a student worker. At the end, she spoke about things she enjoyed regarding
+                the slides and things she thought we could improve. She mentioned that she liked the way we all were able to clearly communicate
+                what our project is about to someone that has no background in the Computer Science field. She was overall impressed with our
+                presentation, but did suggest that we change a couple slides that were too wordy. We also realized that some of the requirements
+                we first put on our website and our slides were outdated. We met on Sunday to go through the slides, in order to edit the 
+                more wordy slides and to update our requirements and schedule.
+              </br>
+              </br>
+               As usual, we added more cards to our training set. Each week we set to add 60 images of 4 cards each. This week we added and
+               annotated the Ace of Hearts, King of Diamonds, Queen of Diamonds, and Jack of Diamonds. Euchre only requires the 9, 10, Jack,
+               Queen, King, and Ace of each suit, so we are getting good progress on our training set. We currently have half the suits of the
+               Jack, Queen, King, and Ace cards. Now that we have switched games and updated how we plan to continue throughout the semester,
+               we all feel much more comfortable and excited about the coming weeks and how our end project will play out!
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-header">
+              Week 5 & 6 (March 5 - 19, 2018)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Showing Off
+              </h4>
+              <p class="card-text">
+                During Week 5, we presented our Midterm Presentation on Friday, March 9, 2018. For the days leading up to it, we mainly
+                focused on editing and practicing our slides. Our main goal for the presentation was, of course, to meet all the requirements
+                of what to communicate to the audience, but also to make the content as clear as possible. For example, the slides I presented
+                were focused on conveying background information on neural nets - a topic which can get very complicated very quickly. Because of this,
+                I spent the week figuring out the best way to keep the explanation as detailed, yet simple as possible. In addition, we pracitced our
+                presentation many times. We wanted each other's feedback on the sections we were presenting, noting if there was anything we should modify.
+                We also went through many dry runs for the sake of perfecting our delivery - many of us hadn't presented in a while and were a little rusty
+                on speaking in front of an audience. Thanks to the large amount of practice, our midterm presentation went extremely smoothely.
+              </br>
+              </br>
+                We also continued to collect images and annotations of cards throughout the two weeks. During Week 5, we completed our normal
+                routine of 4 cards. However, we went over our schedule and realized - with the help of discussion with Dr. Piwowarski - that 
+                we should block out more time to focus on the actual application as opposed to just the training dataset collection. To accomplish this,
+                we decided to double up on collecting the images and annotations over Spring Break, meaning we created a training dataset for 8 cards
+                over the week, rather than 8.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <hr>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Adam Walls, Stephanie McCormick, Rupal Shah, Donald Venus, Chelsea Kuball</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/forcefooter.js"></script>
+
+  </body>
+
+</html>

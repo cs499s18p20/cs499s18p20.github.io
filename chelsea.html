@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CS499 Group 20</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">CS499 Group 20</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUpdates" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Updates
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownUpdates">
+                <a class="dropdown-item" href="adam.html">Adam Walls</a>
+                <a class="dropdown-item" href="stephanie.html">Stephanie McCormick</a>
+                <a class="dropdown-item" href="rupal.html">Rupal Shah</a>
+                <a class="dropdown-item" href="donald.html">Donald Venus</a>
+                <a class="dropdown-item" href="chelsea.html">Chelsea Kuball</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Project
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProject">
+                <a class="dropdown-item" href="introduction.html">Introduction</a>
+                <a class="dropdown-item" href="requirements.html">Requirements</a>
+                <a class="dropdown-item" href="calendar.html">Our Calendar</a>
+                <a class="dropdown-item" href="design.html">Project Design</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <hr>
+
+  <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <h1>Chelsea's Updates</h1>
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              Week 1 (February 4-10)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Getting Started
+              </h4>
+              <p class="card-text">
+                The main goal for me this week was to become more comfortable using TensorFlow through various tutorials. I began research by first completing a simple tutorial for image detection. 
+                <a href="https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0d">This tutorial</a>
+                  retrained Google's Inception V3 model or MobileNet model to classify different types of flowers in an image. At the end I was able to give the model a photo of a sunflower and have it classify it correctly with 98% certainty.
+                  <br>
+             <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md">The other tutorial</a>
+                I worked on is the one provided by our customer. The tutorial helped me learn how to use the Google Cloud Platform in addition to an introduction into object recognition. 
+                This one was a bit tougher to get working, as it was written to run on an earlier version of the git repo I had downloaded for TensorFlow. Luckily Donald found a way around this by resetting the model directory back to the correct version. 
+                With the help of this fix I was able to get it off the ground and training. I used TensorBoard to monitor the model as it trained. 
+                An example of how TensorBoard can be used to monitor learning progress has been provided below.
+                <br>
+            <img src="cs499s18p20.github.io/photos/kuball_dog.jpg" alt="TensorBoardScreenshot" style="width:250px;height:300px;">
+                <br>
+                All in all this was a successful week and I look forward to seeing how we can build off of the provided tutorial to tailor it to our needs! 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+    
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              Week 2 (February 11-17)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Data Collection and Experimentation 
+              </h4>
+              <p class="card-text">
+                  On Monday (2/12) I installed LabelImg, a program for annotating images. I fed it a few jpgs to test, drew some boxes around some playing cards, labeled them with the class "playing card", and then inspected the resulting xml files that the program output. I then started collecting data for our project by scraping about 70 images of the queen of hearts from the web and by taking about 30 images of the card with my phone. I've shared a screenshot below of what annotating looks like on LabelImg. 
+                  <br>
+                  <img src="photos/annotating.jpg" alt="LabelImgScreenshot" style="width:300px;height:300px;">
+                  <br>
+                  As just a small experiment, I fed this small data set into the RCNN model we used for the pets tutorial last week just to see what it did. I succeeded in getting it running and training, however it was having difficulty drawing boxes with the test images. I believe this is due to the small data set, I also only let it run for about 20 minutes before stopping it to save credits.
+                  <br>
+                    <img src="photos/queenheartstest.JPG" class="rotate90" alt="TestingScreenshot" style="width:300px;height:300px;">
+                  <br>
+                  I believe this was a great week! The group is going to start with a data set of 4 cards and then test locally on it to learn more about what goes into feeding a custom data set to a model. Once we get those four cards working we plan to add more until we can get a full deck and train with a full data set of a deck of cards on the model using GCP.   
+                  <br>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+    
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              Week 3 (February 18-24)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Teaching an Old Model New Tricks
+              </h4>
+              <p class="card-text">
+                This week we worked further on data collection. Each of us collected 60 images each of 4 different cards (Queen of Hearts, Jack of Hearts, King of Hearts, and Ace of Diamonds to throw something different but similar in). From initial experimentation of training the dataset on the model, we ran into memory issues and learned that our input image size was too large. After some discussion about the possibility of an eventual mobile or web application, we decided to size down to about 300 pixels for the images to optimize speed. We resubmitted the new resized images and their annotations to our shared Google Drive folder and then focused the rest of our time on the upcoming midterm presentation. Adam got a draft of our powerpoint together this past weekend for us and Rupal sent out some edits today. We plan on meeting some time tomorrow (2/26) to discuss further changes to the presentation and to practice before our practice presentation at Presentation U. 
+                  <br>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+    
+   <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              Week 4 (February 25-March 3)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Presenting: Project Changes and More Data!
+              </h4>
+              <p class="card-text">
+                This week we went to Presentation U! to get some feedback for our slideshow presentation. 
+                This went well, we received a helpful note from them to take one of our textually heavy slides and to try to make it more visual. 
+                I was able to create a more colorful and very visual slide that I think communicates to an audience better than the previous version. 
+                We also made some changes to our requirements and schedule this week. After receiving approval from our customer, 
+                we decided to scale back the amount of cards in our dataset so that we could also build a GUI. 
+                We now plan on training our model on 24 cards- 9, 10, Jack, Queen, King, and Ace of every suit. This set will allow us to change
+                our original idea of a poker hand recommendation system to a euchre one since a euchre deck only requires the top five cards of each suit.
+                We made changes to the Schedule and Milestones and the Calendar (If you look at the description for each week we give a list of that week's 
+                milestones and use an X to denote if that goal has been completed yet)
+                portion of our website to reflect this change, as well as changes in our presentation. 
+                In addition to the presentation work we did this week, we continued to add playing cards to the card dataset: the Queen, King, and 
+                Jack of Diamonds and the Ace of Hearts.
+                  <br>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+    
+       <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              Weeks 5-6 (March 4-March 18)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Data Madness ft. Model Serving 
+              </h4>
+              <p class="card-text">
+                    These past couple weeks were spent preparing for our midterm presentation followed by a relaxing spring break! During our spring break, we each upped our usual 4 card annotation goal to 8 (all face cards of both spades and clubs), so now all that we have left to annotate is the 9's and 10's of each suit. In addition to this, I got to work on serving up a frozen model so that we could test it and start some application development. I successfully was able to create a server using flask that allowed me to upload via an html form a photo of a card that then consults our temporary frozen model and outputs an image with the predicted boxes along with saving an array of all the cards detected in the image to use later for recommendation functions. The next step is to clean up my code and document it, and then we will get started on furthering front end development and testing out the best coding strategy to optimize prediction speed. We should be nearing the end of our data collection (maybe a week away) which will allow us to begin training and then testing our final model that we'll use for our web app.
+                  <br>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <hr>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Adam Walls, Stephanie McCormick, Rupal Shah, Donald Venus, Chelsea Kuball</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/forcefooter.js"></script>
+
+  </body>
+
+</html>

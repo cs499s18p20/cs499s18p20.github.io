@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CS499 Group 20</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">CS499 Group 20</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUpdates" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Updates
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownUpdates">
+                <a class="dropdown-item" href="adam.html">Adam Walls</a>
+                <a class="dropdown-item" href="stephanie.html">Stephanie McCormick</a>
+                <a class="dropdown-item" href="rupal.html">Rupal Shah</a>
+                <a class="dropdown-item" href="donald.html">Donald Venus</a>
+                <a class="dropdown-item" href="chelsea.html">Chelsea Kuball</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Project
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProject">
+                <a class="dropdown-item" href="introduction.html">Introduction</a>
+                <a class="dropdown-item" href="requirements.html">Requirements</a>
+                <a class="dropdown-item" href="calendar.html">Our Calendar</a>
+                <a class="dropdown-item" href="design.html">Project Design</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <hr>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <h1>Adam's Updates</h1>
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              Week 1 - 02/05/2018 - 02/11/2018
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                What am I doing?!
+              </h4>
+              <p class="card-text">                                
+                I helped orchestrate meetings with the customers at Lexmark.
+                On top of that, I attended group meetings to figure out requirements, play story point poker, 
+                and determine the objective for the next several weeks. I also began researching the 
+                Quick Start: Distributed Training on the Oxford-IIIT Pets Dataset on Google Cloud tutorial found on 
+                <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md">
+                    github.com
+                </a> and tried to complete that to gain a better understanding of how to use neural networks (NNs) and train them.
+               As I was running through this tutorial, I developed a batch script to aid my partners as they worked through the tutorial 
+               as well.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-header">
+              Week 2 - 02/12/2018 - 02/18/2018
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Am I doing this right?!
+              </h4>
+              <p class="card-text">                                
+                I got the project tuorial finally working thanks to Donald Venus's suggestions. Discovered that attempting to use
+                Windows OS for this project is a horrible idea. Had I not used it, I may have been able to complete the tutorial much more quickly
+                using the <a href="https://cloud.google.com/">google cloud shell.</a>
+                <p>
+                On top of that, I attended group meetings, since we had to schedule an extra one due to unforseen difficulties in the tutorial,
+                to update the objective(s) for the next several weeks. We discussed requirement 2 and how to annotate the images and create the 
+                training and validation sets needed for the neural network.
+                </p>
+                <p>
+                I started development on a Python script to modify images and enable the team to take one image and generate several unique 
+                images for the training and validation sets. It could use some improvements like a better UI and modifying the brightness of 
+                the image and things of that nature, but it is still in early development.
+                Now the real work begins with annotating the images.
+                </p>
+                <p>
+                Here is a link to the script's github repository: <a href="https://github.com/donaldvenus/models/scripts">script</a>
+                </p>
+              </p>
+            </div>
+          </div>
+        <div class="card">
+            <h3 class="card-header">
+              Week 3 - 02/19/2018 - 02/25/2018
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                I hope I am doing this right!
+              </h4>
+              <p class="card-text">                                
+                Spent some time developing the project presentation Powerpoint slides. Also updated the script that modifies the annotation .xml files 
+                created by the labelimg application. Specifically, I changed the file type in the path label to be set as a ".jpg" file. I also scheduled
+                the group meeting times and discussed some tools we could use to make our lives easier when developing the project data and annotations. 
+                Finaslly, I resized the images I contributed to the data set from 4000x3000 to 300x300 and had to re-annotate the images. We found that the image sizes were too large 
+                and during training, they would consume ovver 100 GB of memory before the server would kill the training attempt. So, we realized thast we needed smaller 
+                image resolutions to prevent this from happening.
+              </p>
+            </div>
+          </div>   
+        <div class="card">
+            <h3 class="card-header">
+              Week 4 - 02/26/2018 - 03/03/2018
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Change of plans!
+              </h4>
+              <p class="card-text">                                
+                This week I added to the library of card images and annotations. On top of that, I discussed the project requirements and deliverables
+                with the customers and whether they would prefer to have an entire library of cards or if they would prefer to have some type of interface.
+                We came to the conclusion that we would be better served working on some type of web application for telling a user what type of hand we had.
+                Chelsea Kuball had the great idea of making the most out of the smaller library and making it work for a card game called Euchre, which uses cards 
+                9 - A. This would allow us to have a complete library for the game without taking 5000+ photos and annotations. It would leave room for other groups to 
+                add games to the application and more to the library.
+                We met with the Presentation U! member and went over our project. They had glowing comments for our presentation and liked the 
+                amount of visuals in it.
+                I created the design block diagrams for the project design. The two images were composed of the design for the web application and
+                the design for the model and how it is developed.
+              </p>
+            </div>
+          </div>
+        <div class="card">
+            <h3 class="card-header">
+              Week 5/6 - 03/04/2018 - 03/18/2018
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Serv(er)ing up an app!
+              </h4>
+              <p class="card-text">                                
+                The first thing I, and the rest of the group did was work on our midterm project presentation. We went over who
+                would cover what parts of the project, what we would like improved and changed for our latest requirement updates,
+                and performed dry runs of our presentations before the presentation occurred. On Friday, March 9th, the group presented the 
+                current project status and what we were hoping to do with the model going forward. 
+                This week(s) I continued adding to the image and annotation data sets and began looking into how to set up a web server using Flask
+                and implementing a RESTful API. The team decided to double up on the amount of cards to add to the dat set since we 
+                would have more time during Spring break. I found some promising results for a server 
+                <a href="http://www.patricksoftwareblog.com/receiving-files-with-a-flask-rest-api/">here</a> and 
+                <a href="https://guillaumegenthial.github.io/serving.html">here</a>.
+                I tested a simple server from <a href="https://gist.github.com/bradmontgomery/2219997">this site</a> as well. While it
+                allowed for simple post requests, our project needs to be able to send and receive images to provide the required functionality. So,
+                I plan to continue researching how to implement such a server.
+                The group is very excited about development so far.
+              </p>
+            </div>
+          </div>        
+        <div class="card">
+            <h3 class="card-header">
+              Week 7 - 03/19/2018 - 03/26/2018
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Serv(er)ing up an app! (continued)
+              </h4>
+              <p class="card-text">                                
+                I completed my round of contributions to all of the cards included in a Euchre deck. I also emailed the customers about 
+                project updates, how the presentation went, and their thoughts on implementing a recommendation system for the Euchre-based
+                application and if it would be feasible to work on a neural network during the last few weeks of the semester. 
+                On top of those developments, I plan on digging into the server application to see if there are any possible improvements
+                for the improving processing speed. It uses matplotlib, which I have some prior experience using for some CS460G 
+                assignments here at UK.
+                I set up an initial testing plan, which was shared  with the group so we could contribute our own testing
+                ideas to each of the project components. The customers provided some feedback on the project and recommended that 
+                the group focus on completing the application before considering any work on a neural netwrok-based recommendation system.                
+              </p>
+            </div>         
+          </div> <!-- /.Week 7 --->                 
+        </div>                 
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <hr>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Adam Walls, Stephanie McCormick, Rupal Shah, Donald Venus, Chelsea Kuball</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/forcefooter.js"></script>
+
+  </body>
+
+</html>

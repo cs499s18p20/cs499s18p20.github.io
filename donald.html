@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CS499 Group 20</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">CS499 Group 20</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUpdates" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Updates
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownUpdates">
+                <a class="dropdown-item" href="adam.html">Adam Walls</a>
+                <a class="dropdown-item" href="stephanie.html">Stephanie McCormick</a>
+                <a class="dropdown-item" href="rupal.html">Rupal Shah</a>
+                <a class="dropdown-item" href="donald.html">Donald Venus</a>
+                <a class="dropdown-item" href="chelsea.html">Chelsea Kuball</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Project
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProject">
+                <a class="dropdown-item" href="introduction.html">Introduction</a>
+                <a class="dropdown-item" href="requirements.html">Requirements</a>
+                <a class="dropdown-item" href="calendar.html">Our Calendar</a>
+                <a class="dropdown-item" href="design.html">Project Design</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <hr>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <h1>Donald's Updates</h1>
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              February 4 - 10
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Beginning the project
+              </h4>
+              <p class="card-text">
+                This was the first week that we really got started with our project. We previously met with our customer, 
+                hammered out the initial ideas for our requirements and put together a pretty simple schedule to at
+                least keep us on the right path for the next few weeks until we can put together something of more substance.
+                According to our requirements and our schedule, this first week was originally planned to be the week that we
+                finished the object-recognition tutorial hosted by Google on the TensorFlow repository. We determined
+                that it would probably be best if each of us did the tutorial independantly to get familiar with the tools
+                that we will be using throughout the semester. In the end, we did achieve this goal, but just barely. I was
+                the only one on the team to use a linux machine to work through the tutorial, and it soon became obvious
+                that it was really designed for linux and not windows so I had a much easier time than most of the team. 
+                Another team member had a mac which also proved to work quite well with the tutorial.
+                <br>
+                <br>
+                This wasn't the only issue we ran into, however. The tutorial had been designed to work with TensorFlow 1.2. 
+                This posed a problem since the rest of the TensorFlow repository had changed very significantly since 1.2
+                which rendered the tutorial out-of-date and incorrect in some cases. After working through it, I was 
+                unable to get any of my training
+                jobs to start successfully on the cloud platform. After doing some research, trying a number of fixes, and
+                ultimately starting about 10 failed jobs, I was able to find a fix. Luckily, with github, it is easy to roll
+                back a repository to a previous state. So, by rolling the entire TensorFlow repository back to 1.2, I was finally
+                able to get the tutorial to work and run machine learning training and evaluation jobs on the Google Cloud
+                Platform. Unfortunately all of the team didn't reach this point 
+                (trying to do this with Windows is significantly more
+                challenging) but I think since we did get most of the way there, we can call this week a success! 
+                <br>
+                <br>
+                I originally
+                trained the model using a "standard_cpu" machine offered by Google Cloud Platform but that proved to be incredibly
+                slow (20 seconds per simulation step). By changing to using 5 "standard_gpu" machines, this sped up to about 1
+                second per step and the model was able to converge and predict with relatively high accuracy the breeds of
+                cats and dogs based on images (this was the purpose of the tutorial). For the time being, we will probably
+                continue to work with TensorFlow 1.2 but may revisit using TensorFlow 1.4 in the future. TensorFlow 1.4 was 
+                released very recently and still doesn't seem to fully work on Google Cloud Platform anyway, so I don't think
+                this is a huge loss. Moving forward, our next goal will be to add annotated images of cards to the
+                current dataset containing cats and dogs. The idea is to get the model to accurately identify cards as separate
+                objects than cats and dogs. It should be a fun week!
+              </p>
+            </div>
+          </div>
+          
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              February 11 - 17
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Creating the Initial Dataset
+              </h4>
+              <p class="card-text">
+                This week, the primary focus was creating an initial dataset to start training a model that can identify playing
+                cards in images. In order to accomplish this, we selected 4 cards (Jack of hearts, Queen of hearts, King of hearts,
+                and Ace of diamonds) to begin testing with. The main goal here is to train the model to recognize these 4 cards
+                and be able to identify them in images. As part of this, I took ~240 images (60 of each card) and used the program
+                <a href="https://github.com/tzutalin/labelImg">labelImg</a> in order to annotate them. These annotations are
+                necessary so that the model can learn what each of the cards look like. In addition, I spent some time researching
+                the different configurations that can be used when doing training. It is very likely that we will have to play with
+                these configurations in order to get the results we desire. This next week, we will be working to
+                train the model and will evaluate its performance using a portion of the images we gathered. Depending on its
+                performance, we will either need to further refine the model to identify these four cards or will be able to 
+                start adding more cards to the training set. 
+              </p>
+            </div>
+          </div>
+
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              February 18 - 24
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Promising Initial Results!
+              </h4>
+              <p class="card-text">
+                This week, we used the images collected last week to begin training a TensorFlow model to detect cards in images.
+                My primary contribution this week was taking all of the images the group collected last week and using them to
+                train a model on the Google Cloud Platform. While originally I thought this task would be fairly straightforward
+                (after going through the tutorial a couple weeks ago), I soon found that this was going to be quite the involved
+                task. 
+                <br>
+                <br>
+                Slight differences in the annotations and filenames used by each individual for the card images made just
+                getting the data set into a standard form quite the challenge. After that, altering the tutorial to actually use
+                our data set instead of the pets data set required the manipulation of a large number of scripts and configuration
+                files. In order to facilitate this, I set up a new repository <a href="http://github.com/donaldvenus/models">here</a>
+                that contains all of the new files for the cards data set as well as all the important library files necessary
+                to properly setup a model for training on the cloud. 
+                <br>
+                <br>
+                The next issue was the fact that we used rather large images (in some cases images with 4k resolution!). This was such 
+                an issue that we actually kept running into memory issues on the cloud with our memory usage surpassing 80 gigabytes for
+                training. We would always hit the memory cap and cause the job to fail. After doing some research online, I was able to
+                resolve this by limiting the batch queue size at the expense of training speed.
+                <br>
+                <br>
+                After finally getting the job to successfully run for about 2 hours on 10 cloud-based GPUs, we began to get some very
+                promising results. The images below show the identifications that the neural net was able to make after this training.
+                As you can see, the results are very promising, but they are definitely not perfect and there is still a lot of room
+                for improvement.
+                <br>
+                <br>
+                <img src="./photos/initial_results_1.png">
+                <br>
+                This image shows the correct identification of a King of Hearts with 99% certainty!
+                <br>
+                <br>
+                <img src="./photos/initial_results_2.png">
+                <br>
+                This image shows the proper identification of a card object but as you can see, it is mislabled as a King of Hearts rather
+                than a Queen of Hearts. 
+                <br>
+                <br>
+                <img src="./photos/initial_results_3.png">
+                <br>
+                This image shows the proper identification of the King of Hearts with 97% certainty but the misidentification of a tag hanging
+                from the blinds as a Queen of Hearts.
+                <br>
+                <br>
+                In order to improve our results, we decided to resize all of our images down to about 320x240 pixels. This serves the purpose
+                of greatly speeding up the training time as well as allowing our model to generalize better since it is less likely to
+                overtrain on low resolution images. For my contribution, I resized and reannotated all 240 of the images I took
+                last week. This week we will be training with these new smaller images and I am excited to see
+                what kind of results we are able to achieve. 
+              </p>
+            </div>
+          </div>
+
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              February 25 - March 3
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Updating the Requirements
+              </h4>
+              <p class="card-text">
+                This week marked a shift in our goals for the rest of the semester. Given our rapid progress in identifying cards (we are
+                currently able to identify individual cards, bypassing the adding suits and adding values parts of the project), we have
+                decided to shift our requirements to better reflect this. We will continue to add more cards to the dataset but will begin
+                work simultaneously on a simple web application that will allow users to interface with our trained card detection model.
+                <br>
+                <br>
+                My main contribution this week was using the smaller images created last week to train a new model using the Google Cloud
+                Platform. Our results were even more promising than the first dataset and we are excited to include this progress in our
+                presentation this week. It was also nice to see how quickly this new model trained compared to the model trained with the
+                much larger images. My other contributions were helping to prepare the presentation for this week and updating the
+                introduction and requirements web pages to reflect the shift in our requirements for the semester.
+                <br>
+                <br>
+                I also meant to add another 240 images to our dataset like the rest of the group but was unable to complete that this 
+                weekend. I have all of the images and have started annotating them, but I will have to catch up this week and finish
+                that up in addition to my work for this week. 
+              </p>
+            </div>
+          </div>
+
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              March 4 - 17
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Annotations, Annotations, and more Annotations...
+              </h4>
+              <p class="card-text">
+                These last two weeks our group presented to the class, started designing our web application after updating our requirements
+                and then continuing wrapping up our annotations so that we can focus on the more exciting aspects of our project moving forward!
+                <br>
+                <br>
+                My primary contributions these last two weeks were finishing my share of the annotations for all 24 cards that we are working
+                to identify! In total, I completed annotations for ~960 images in the last two weeks. It is a big weight off my shoulders now
+                since these annotations were definitely the most grueling and dull part of the project. In addition, I was able to successfully
+                freeze a prediction model (a model that will not train further and will only make predictions) and shared it with my team so that
+                we can develop around it for our web application.
+                <br>
+                <br>
+                This week, I will be retraining our model with the new annotations we have and testing its performance. As long as our precision
+                continues to be high, I don't foresee any major issues with this part of our project. I will also start the process of making a
+                dedicated test image set which is standard practice for this kind of work based on what I've found through research. So far we have
+                just been randomly selecting images from our training set to use as the test set but this is not ideal. Lastly, I would like to 
+                work on the frontend design of the web application, but I will see how much time I have.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <hr>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Adam Walls, Stephanie McCormick, Rupal Shah, Donald Venus, Chelsea Kuball</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/forcefooter.js"></script>
+
+  </body>
+
+</html>

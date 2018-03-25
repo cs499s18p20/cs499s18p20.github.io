@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CS499 Group 20</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">CS499 Group 20</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUpdates" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Updates
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownUpdates">
+                <a class="dropdown-item" href="adam.html">Adam Walls</a>
+                <a class="dropdown-item" href="stephanie.html">Stephanie McCormick</a>
+                <a class="dropdown-item" href="rupal.html">Rupal Shah</a>
+                <a class="dropdown-item" href="donald.html">Donald Venus</a>
+                <a class="dropdown-item" href="chelsea.html">Chelsea Kuball</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Project
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProject">
+                <a class="dropdown-item" href="introduction.html">Introduction</a>
+                <a class="dropdown-item" href="requirements.html">Requirements</a>
+                <a class="dropdown-item" href="calendar.html">Our Calendar</a>
+                <a class="dropdown-item" href="design.html">Project Design</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <hr>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <h1>Project Design</h1>
+          <br>
+          <h2>Overview</h2> 
+          <p>            
+            Our project involves creating a dataset of card images and labeling them in order to train a 
+            neural network to identify playing cards from a standard deck. The cards that will be used for this project include those cards 
+            involved in playing a game of Euchre, which includes all cards valued from 9 to A. This allows for a complete set of cards and 
+            allows the group to create a web application to interface with the model. Once the model has been developed to accurately predict 
+            any of the 24 possible cards in a Euchre deck, it will then be deployed onto our Web application. A server will host the model and 
+            handle requests to identify cards within an image. 
+          </p>
+          <h2>Environments and Languages</h2>
+          <p>
+            The following tools and environments will be used to develop the neural network:
+            <ul>
+              <li>Linux/Unix OS, Mac OSX</li>  
+              <li>TensorFlow: Google's open-source machine learning framework</li>
+              <li>labelImg: An open-source image annotation tool</li>
+              <li>Google Cloud Platform: Google's suite of cloud based computing services</li>
+              <li>Python 2.7/3.6: The preferred programming language for working with TensorFlow</li>
+              <li>PyScripter: A user-friendly, interactive Python IDE</li>
+              <li>Internal tools: It is very likely that we will find it helpful to build some of our own tools (for example, a script to rotate 
+                images in order to create more test images from a single picture). These will be added as we develop them. Stretch Goal 3 may be 
+                another tool that we find useful. (Typically developed in Python)</li>
+            </ul>      
+          </p>
+          <p>
+            The following tools will be used to develop the web application:
+            <ul>
+              <li>Linux/Unix OS, Mac OSX, Windows 8.1/10</li>
+              <li>Python 2.7/3.6: The preferred programming language for working with TensorFlow</li>
+              <li>PyScripter: A user-friendly, interactive Python IDE</li>
+              <li>Django: A Python framework used for developing server-side software</li>
+              <li>HTML, CSS</li>
+              <li>JavaScript: A versatile, interactive web programming language</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="row">        
+        <div class="col-lg-10 col-centered">          
+          <h2>Module Description and Data Flow</h2>                
+          This image is the design for how the model is trained. The Gogle Cloud Platform is leveraged to make use of their powerful computer hardware
+          instead of commercial hardware, which pales in comparison to the computing power of these GPUs. Using their Machine Learning Engine, a 
+          card recognition model is developed to gain the ability to determine the cards provided in an image.
+          <br>
+          <img src="./photos/project_design_model.JPG">
+          <br>
+          <br>
+          This image is the web application design for the user interface. They would select an image from file explorer and select "send"
+          to be sent to the server, which hosts the model, in order to evaluate what cards are in the hand.     
+          <br>
+          <img src="./photos/project_design_webapp.JPG">
+          <br>          
+          <br>          
+        </div>                 
+      </div>  
+      <div class="row">        
+        <div class="col-lg-10 col-centered">          
+          <h2>Model Development Interface</h2>      
+          Training the model was usually performed from this screen: The Google Cloud Platform’s shell, which hosted a Linux environment 
+          and proved especially useful for those with a Windows based PC.
+          <br>
+          <img src="./photos/shell_terminal_img.png">
+          <br>
+          <br>
+        </div>
+      </div>
+      <div class="row">        
+        <div class="col-lg-10 col-centered">          
+          <h2>User Interface Design</h2>               
+          First, the user will be able to go to the application web page and use this simple UI to upload a photo to the server.          
+          <br>
+          <img src="./photos/UI_Design.jpg">
+          <br>
+          <br>
+          Once clicking “upload photo”, the user will then be shown a divided page: one side will hold their image along with the other 
+          side showing a loading screen. 
+          <br>
+          <img src="./photos/User_Screen1.jpg">
+          <br>
+          <br>
+          After the server has received the image, used the model to predict the cards held in the image, and returned the resulting image 
+          and labels, the user will be shown a screen like this:
+          <br>
+          <img src = "./photos/User_Screen2.jpg">
+          <br>
+          <br>
+        </div>  
+      </div>
+      <div class="row">        
+        <div class="col-lg-10 col-centered">          
+          <h2>User Scenarios</h2>      
+          <ol>
+            <li>The user wants to see a single card identified by the model. So, they take an image from their webcam of a card they are interested in, 
+            click on the browse button where their photos are stored, select the photo of the card, and click the upload photo button. Next, the
+            app displays the user's image to them ansd lets the user know that it is attempting to label the card image. Then, the application sends
+            the photo to the server, which labels the image, and sends it back to the user along with the card labels for those it recognized.</li>
+            <li>The user wants to see several cards identified by the model. So, they take an image from their webcam of a card they are interested in, 
+            click on the browse button where their photos are stored, select the photo of the card, and click the upload photo button. Next, the
+            app displays the user's image to them ansd lets the user know that it is attempting to label the card image. Then, the application sends
+            the photo to the server, which labels the various cards in the image, and sends it back to the user along with the card labels for those it recognized.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <hr>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Adam Walls, Stephanie McCormick, Rupal Shah, Donald Venus, Chelsea Kuball</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/forcefooter.js"></script>
+
+  </body>
+
+</html>
