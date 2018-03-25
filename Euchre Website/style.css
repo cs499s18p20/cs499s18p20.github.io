@@ -1,0 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
+
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;	
+	font-family: 'Arial', sans-serif;
+	background-image: url("bannerimg.jpg");
+    background-position: center;
+}
+
+header {
+	background: #ffffff;
+}
+
+nav {
+	margin: 0 auto;
+	text-align: center;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	display: inline-block;
+	margin-left: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+nav ul > li > a {
+	color: #000000;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+nav ul > li > a:hover {
+	color: #c1c1c1;
+}
+
+.title {
+	font-family: 'IBM Plex Mono', serif;
+	text-align: center;
+}
+
+.title > h1 {
+	font-size: 5em; 
+}
+
+
+/* Replaces "File Upload" Button - allows for customizing */
+label {
+	background-color: #ffec47;
+	font-size: 16px;
+	display: inline-block;
+	cursor: pointer;
+
+}
+
+/* Hides "File Upload" Button */
+#fileupload {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+#filebutton {
+	background-color: #ffec47;
+	border: none;
+	color: black;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	border-radius: 30px;
+}
+
+
+/* Customizes "Submit" Button */
+#submitbutton {
+	cursor: pointer;
+	background-color: #ffec47;
+	border: none;
+	color: black;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	border-radius: 30px;
+}
+
+.about-us-text, .how-to-use-text {
+	background-color: #9dc0f9;
+	width: 75%;
+    border: 25px solid #9dc0f9;
+    padding: 25px;
+    margin: 25px;
+    opacity: 0.85;
+}
+
+.about-us-text, .how-to-use-text > h1 {
+	font-family: 'Roboto Mono', serif;
+	text-align: center;
+}
+
+.about-us-text, .how-to-use-text {
+	text-align: left;
+}
