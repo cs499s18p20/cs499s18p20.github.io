@@ -104,13 +104,13 @@ label {
     padding: 25px;
     margin: 25px;
     opacity: 0.85;
+   	font-family: 'Roboto Mono', serif;
+	text-align: left;
 }
 
-.about-us-text, .how-to-use-text > h1 {
+.about-us-text > h1, .how-to-use-text > h1 {
 	font-family: 'Roboto Mono', serif;
 	text-align: center;
 }
 
-.about-us-text, .how-to-use-text {
-	text-align: left;
-}
+
