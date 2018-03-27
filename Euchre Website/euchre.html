@@ -10,9 +10,12 @@
 	<!-- Link to CSS Sheet -->
 	<link rel="stylesheet" href="style.css" type="text/css" />
 
+	<!-- Link to JavaScript File -->
+	<script type="text/javascript" src="main.js"></script>
+
 </head>
 
-<body>
+<body onload="typing()">
 
 	<!-- Navigation Bar -->
 	<header>
@@ -27,7 +30,7 @@
 
 	<!-- Page Title -->
 	<div class="title">
-		<h1>Euchre Hand</br>Recognition</h1>
+    	<h1 id="typewriter"></h1>
 		<h2>Neural Nets for Games</h2>
 	</div>
 
@@ -49,23 +52,7 @@
 			</form>
 
 			<!-- Display Name of File Chosen -->
-			<!-- Source: http://jsfiddle.net/YMMLQ/ -->
-			<script>
-				var button = document.getElementById('filebutton');
-				var input  = document.getElementById('fileupload');
-
-				input.style.display = 'none';
-				button.style.display = 'initial';
-
-				button.addEventListener('click', function (e) {
-				    e.preventDefault();				    
-				    input.click();
-				});
-
-				input.addEventListener('change', function () {
-				   button.innerText = this.value; 
-				});
-			</script>
+			<script>browse_button()</script>
 
 		</center>
 	</form>
