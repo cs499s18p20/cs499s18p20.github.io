@@ -1,5 +1,6 @@
 // Typewriter Effect
-var title = 'Euchre Hand Recognition';
+// var title = 'Euchre Hand Recognition';
+var title = 'Coming Soon...'
 var speed = 150;
 var iteration = 0;
 
