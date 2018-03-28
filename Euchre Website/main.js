@@ -11,9 +11,9 @@ function typing() {
 		document.getElementById("typewriter").innerHTML += title.charAt(iteration);
 		
 		// Break between "Euchre Hand" and "Recognition"
-		if(iteration == 11) {
-			document.getElementById("typewriter").innerHTML += '<br>';
-		}
+// 		if(iteration == 11) {
+// 			document.getElementById("typewriter").innerHTML += '<br>';
+// 		}
 
 		iteration++;
 		setTimeout(typing, speed);
