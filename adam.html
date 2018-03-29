@@ -214,7 +214,16 @@
                 Serv(er)ing up an app! (continued)
               </h4>
               <p class="card-text">                                
-                I began the testing section of the groups' website.                
+                I began the testing section of the groups' website adding all of the test cases featured on testing section of the 
+                website. On top of that, I had to make corrections to some faulty images and annotations. Some of the images simply did not upload
+                so I had to remedy the issues for the images that I was responsible for. I also continued researching how to host a server using 
+                Docker and worked through a tutorial that uses Docker to host a Tensorflow model server. I ran into an issue with the group's
+                current frozen model where the model has to be frozen with a "serve" tag in order for the Docker Virtual Machine/server to be able to
+                recognize it as a viable model. It also looks for a directory structure where you have the root model directory and versions are contained 
+                in numbered subdirectories. So if I had a card_model directory as the root model directory, I would need version one and all the necessary 
+                files stored in a directory named "1" as a subdirectory of the card_model directory. Docker is useful because once you have a Docker image working,
+                it makes serving the model much more portable and can be served on several different platforms. So, I will continue to research how to properly implement
+                a Tensorflow model server using it. First, I will have to figure out how to freeze the model so that it is compatible with Docker.
               </p>
             </div>         
           </div> <!-- /.Week 7 --->
