@@ -117,9 +117,11 @@ But for now, it's hard-coded to display a placeholder after a certain amount of 
 var masterCNarray = ["AceOfSpades", "KingOfSpades", "JackOfSpades", "QueenOfSpades", "TenOfSpades", "NineOfSpades", "AceOfDiamonds", "KingOfDiamonds", "JackOfDiamonds", "QueenOfDiamonds", "TenOfDiamonds", "NineOfDiamonds", "AceOfClubs", "KingOfClubs", "JackOfClubs", "QueenOfClubs", "TenOfClubs", "NineOfClubs", "AceOfHearts", "KingOfHearts", "JackOfHearts", "QueenOfHearts", "TenOfHearts", "NineOfHearts"];
 
 /* The following section creates a mock Euchre hand (five cards) for purposes of this placeholder, and will not actually be used in the final website.*/
-var fivecards = [];
+var cards = [];
 var usedCNs = [];
-for (var i = 0; i < 5; i+=1) {
+var num_cards = 6;
+// add get number of cards from length of Posted cards array
+for (var i = 0; i < num_cards; i+=1) {
   var NPpair = [];
   var randCN = masterCNarray[ Math.floor(Math.random() * masterCNarray.length) ];
   var randCP = Math.random();
@@ -128,104 +130,83 @@ for (var i = 0; i < 5; i+=1) {
   }
   NPpair.push(randCN, randCP);
   usedCNs.push(randCN);
-  fivecards.push(NPpair);
+  cards.push(NPpair);
 }
 
 /*This function gets the five card names from a 2-D array of card names and probabilities.*/
 function getCN(index) {
-  document.write((fivecards[index])[0]);
+  document.write((cards[index])[0]);
+  document.write(" ");
+}
+
+function getCNs(){
+	for(var i = 0; i < num_cards; i+= 1){
+		getCN(i);
+	}
 }
 
 /*This function gets the requested probability associated with a card, rounded to two decimal places.*/
 function getCP(index) {
-  var roundedCP = Number(Math.round((fivecards[index])[1]+'e2')+'e-2') * 100;
+  var roundedCP = Number(Math.round((cards[index])[1]+'e2')+'e-2') * 100;
   document.write(roundedCP + '%');
 }
 
 /*This section creates the drop-down menus.*/
-function addOptions1() {
-	var select1 = document.getElementById("selectCard1");
+function addOptions(i) {
+	var select = document.getElementById("selectCard" + i);
 	for (var i = 0; i < masterCNarray.length; i+=1) {
 	  var opt = document.createElement("option");
 	  opt.text = masterCNarray[i];
-	  select1.add(opt);
+	  select.add(opt);
 	}
 }
-function addOptions2() {
-	var select2 = document.getElementById("selectCard2"); 
-	for (var i = 0; i < masterCNarray.length; i+=1) {
-	  var opt = document.createElement("option");
-	  opt.text = masterCNarray[i];
-	  select2.add(opt);
-	}
-}
-function addOptions3() {
-	var select3 = document.getElementById("selectCard3"); 
-	for (var i = 0; i < masterCNarray.length; i+=1) {
-	  var opt = document.createElement("option");
-	  opt.text = masterCNarray[i];
-	  select3.add(opt);
-	}
-}
-function addOptions4() {
-	var select4 = document.getElementById("selectCard4"); 
-	for (var i = 0; i < masterCNarray.length; i+=1) {
-	  var opt = document.createElement("option");
-	  opt.text = masterCNarray[i];
-	  select4.add(opt);
-	}
-}
-function addOptions5() {
-	var select5 = document.getElementById("selectCard5");
-	for (var i = 0; i < masterCNarray.length; i+=1) {
-	  var opt = document.createElement("option");
-	  opt.text = masterCNarray[i];
-	  select5.add(opt);
-	}
-}  
 
 /*This section makes the drop-down menus accessible to change card values if the 'net guessed wrong.*/
 function enable_value(id){
-  if (id==1) { document.getElementById("selectCard1").disabled = false; }
-  else if (id==2) { document.getElementById("selectCard2").disabled = false; }
-  else if (id==3) { document.getElementById("selectCard3").disabled = false; }
-  else if (id==4) { document.getElementById("selectCard4").disabled = false; }
-  else if (id==5) { document.getElementById("selectCard5").disabled = false; }
+  document.getElementById("selectCard" + id).disabled = false;
 }
 
 /*Revise the card name according to what the user has selected in the drop-down menus.*/
 /*----------HAVE POTENTIAL TO CORRECTLY REVISE THE CARD NAME IF OTHER ADJUSTMENTS ARE MADE TO CODE,
  BUT DO NOT UPDATE THE WEBPAGE IN REAL TIME AS DESIRED.-----------*/
-function reviseCard1(dropdown) {
-	var e = document.getElementById("selectCard1");
+function reviseCard(dropdown, i) {
+	var e = document.getElementById("selectCard" + i);
 	var strUser = e.options[e.selectedIndex].text;
-	(fivecards[0])[0] = strUser;
-	document.write((fivecards[0])[0]);
+	(cards[0])[0] = strUser;
+	document.write((cards[0])[0]);
 }
-function reviseCard2() {
-	var e = document.getElementById("selectCard2");
-	var strUser = e.options[e.selectedIndex].text;
-	(fivecards[1])[0] = strUser;
-	document.write((fivecards[1])[0]);
+
+/*
+function loadTable(){
+	var table = document.getElementById("myTable");
+	var br = document.createElement('br');
+	table.appendChild(br);
+	var br = document.createElement('br');
+	table.appendChild(br);
+	for(var i = 0; i < num_cards; i += 1){
+		var tr = document.createElement('tr');
+		for (var j = 0; j < 3; j++) {
+            var td = document.createElement('td');
+			if(j == 0){
+				td.id = "selectCard" + (i+1);				
+				td.appendChild(document.createTextNode(cards[i][0]));
+				tr.
+			}
+			else if(j == 1){				
+				td.appendChild(document.createTextNode('with ' + cards[i][1] + ' %'));		
+			}
+			else{				
+				td.onclick = "enable_value(" + (i+1) + ")";		
+				td.value = "Am I wrong?";
+			}
+			tr.appendChild(td);
+        }
+		table.appendChild(tr);
+		var br = document.createElement('br');
+		table.appendChild(br);
+	}
 }
-function reviseCard3() {
-	var e = document.getElementById("selectCard3");
-	var strUser = e.options[e.selectedIndex].text;
-	(fivecards[2])[0] = strUser;
-	document.write((fivecards[2])[0]);
-}
-function reviseCard4() {
-	var e = document.getElementById("selectCard4");
-	var strUser = e.options[e.selectedIndex].text;
-	(fivecards[3])[0] = strUser;
-	document.write((fivecards[3])[0]);
-}
-function reviseCard5() {
-	var e = document.getElementById("selectCard5");
-	var strUser = e.options[e.selectedIndex].text;
-	(fivecards[4])[0] = strUser;
-	document.write((fivecards[4])[0]);
-}
+*/
 </script>
 
 <!--The animated spinning loader.-->
@@ -248,45 +229,53 @@ function reviseCard5() {
 	   style="float:left; margin:0 5px 5px 0;"/>
 	   <div class="resulttext">
 	     <!--Five cards, each with a modifiable value.-->
-		 <table>
-		     <tr>
+		 <table id="myTable">
+		 
+			<tr>
 				 <td><select disabled id="selectCard1">
 				   <option selected disabled hidden><script>getCN(0)</script></option></select></td> 
-				   <script>addOptions1()</script>
+				   <script>addOptions(1)</script>
 				   <td> with <script>getCP(0)</script> certainty.</td>
 				   <td> <input type="button" onclick="enable_value(1)" value="Am I wrong?"></td><br>
 			 </tr>
 			 <tr>
 				 <td><select disabled id="selectCard2">
 				   <option selected disabled hidden><script>getCN(1)</script></option></select></td> 
-				   <script>addOptions2()</script>
+				   <script>addOptions(2)</script>
 				   <td> with <script>getCP(1)</script> certainty.</td>
 				   <td> <input type="button" onclick="enable_value(2)" value="Am I wrong?"></td><br>
 			 </tr>
 			 <tr>
 				 <td><select disabled id="selectCard3">
-				   <option selected disabled hidden><script>getCN(2)</script></option></select></td> <script>addOptions3()</script>
+				   <option selected disabled hidden><script>getCN(2)</script></option></select></td> <script>addOptions(3)</script>
 				   <td> with <script>getCP(2)</script> certainty.</td>
 				   <td> <input type="button" onclick="enable_value(3)" value="Am I wrong?"></td><br>
 			 </tr>
 			 <tr>
 				 <td><select disabled id="selectCard4">
-				   <option selected disabled hidden><script>getCN(3)</script></option></select></td> <script>addOptions4()</script>
+				   <option selected disabled hidden><script>getCN(3)</script></option></select></td> <script>addOptions(4)</script>
 				   <td> with <script>getCP(3)</script> certainty.</td>
 				   <td> <input type="button" onclick="enable_value(4)" value="Am I wrong?"></td><br>
 			 </tr>
 			 <tr>
 				 <td><select disabled id="selectCard5">
-				   <option selected disabled hidden><script>getCN(4)</script></option></select></td> <script>addOptions5()</script>
+				   <option selected disabled hidden><script>getCN(4)</script></option></select></td> <script>addOptions(5)</script>
 				   <td> with <script>getCP(4)</script> certainty.</td>
 				   <td> <input type="button" onclick="enable_value(5)" value="Am I wrong?"></td><br>
 			 </tr>
+			 <tr>
+				 <td><select disabled id="selectCard6">
+				   <option selected disabled hidden><script>getCN(5)</script></option></select></td> <script>addOptions(6)</script>
+				   <td> with <script>getCP(5)</script> certainty.</td>
+				   <td> <input type="button" onclick="enable_value(6)" value="Am I wrong?"></td><br>
+			 </tr>
+			 
 		 </table>
 
 		 <br>
 <!--Should, but does not yet, update these values as the user selects new cards from the drop down menu.-->
 	     Your Euchre hand contains <br>
-		 <b><script>getCN(0)</script>, <script>getCN(1)</script>, <script>getCN(2)</script>, <script>getCN(3)</script>, <script>getCN(4)</script>.</b>
+		 <b><script>getCNs()</script></b>
 		 <br><br>
 		 [insert helpful advice here]
 		 <br><br><br><br><br>
@@ -303,8 +292,9 @@ function displayResult() {
 }
 //Unhide the result, hide the loader.
 function showPage() {
-  document.getElementById("loadDiv").style.display="none"
-  document.getElementById("resultDiv").style.display="block"
+  document.getElementById("loadDiv").style.display="none";
+  document.getElementById("resultDiv").style.display="block";
+  //loadTable();
 }
 </script>
 
