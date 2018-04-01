@@ -1,0 +1,313 @@
+<html>
+
+<head>
+<!--Making a circular red-and-black spinning loader, step 1.-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--To animate the reloaded page.-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!--Built-in CSS for formatting page.-->
+<style>
+/*Importing the fonts that will be used on the page.*/
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
+
+/*Making a circular red-and-black spinning loader, remaining steps.*/
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 75%;
+  border-top: 16px solid red;
+  border-right: 16px solid black;
+  border-bottom: 16px solid red;
+  border-left: 16px solid black;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+/*Note: webkit animation and keyframes = Safari, Chrome, later vers. of Opera.
+For Firefox and Internet Explorer functionality, can add in
+-moz-animation and -ms-animation respectively if necessary.*/
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*Making the font 'IBM Plex Mono' for the loadtext.*/
+.loadtext {
+  font-family: 'IBM Plex Mono';
+  font-size: 25px;
+}
+
+/*An animated ellipsis for the loadtext.*/
+.loadtext:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis
+  steps(4,end) 1000ms infinite;      
+  animation: ellipsis steps(4,end) 1000ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 5px; /* just large enough for the effect of dots "appearing" one by one */
+}
+@keyframes ellipsis {
+  to {
+    width: 25px;    
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 25px;    
+  }
+}
+
+/*I know Rupal has this in her main stylesheet, but this is here so I could use the
+same background image in my own built-in CSS without wrecking Rupal's code. :-)*/
+body {
+  background-image: url("bannerimg.jpg");
+  background-position: center;
+}
+
+/*A transparent box to make the load screen easier to see against the BG.*/
+div.textbox {
+  margin: 40px;
+  background: rgba(255, 255, 255, 0.8); /* change opacity of bg only */
+}
+
+/*A container for my loading message and loader so that it can disappear when results are ready.*/
+#loadDiv {}
+
+/*The div loaded after the page is done "thinking".*/
+/*In practice, this will be after the 'net is done analyzing the image the user passes in.
+But for now, it's hard-coded to display a placeholder after a certain amount of time.*/
+#resultDiv {
+  display: none; /*non-visible by default*/
+  text-align: center;
+}
+
+/*Making the font 'Roboto Mono' for the result text.*/
+.resulttext {
+  font-family: 'Roboto Mono';
+  font-size: 16px;
+}
+
+#resultimage{
+  src: url("placeholder.jpg")
+  alt: "Image failed to display, but it's a placeholder so it's okay."
+}
+
+}
+
+</style>
+</head>
+
+<body onload="displayResult()" style="margin:0;">
+<!--Processing of card names. Needs to be moved to a separate script file later...-->
+<script>
+/*A list of all card names for the drop-down menu.*/
+var masterCNarray = ["AceOfSpades", "KingOfSpades", "JackOfSpades", "QueenOfSpades", "TenOfSpades", "NineOfSpades", "AceOfDiamonds", "KingOfDiamonds", "JackOfDiamonds", "QueenOfDiamonds", "TenOfDiamonds", "NineOfDiamonds", "AceOfClubs", "KingOfClubs", "JackOfClubs", "QueenOfClubs", "TenOfClubs", "NineOfClubs", "AceOfHearts", "KingOfHearts", "JackOfHearts", "QueenOfHearts", "TenOfHearts", "NineOfHearts"];
+
+/* The following section creates a mock Euchre hand (five cards) for purposes of this placeholder, and will not actually be used in the final website.*/
+var fivecards = [];
+var usedCNs = [];
+for (var i = 0; i < 5; i+=1) {
+  var NPpair = [];
+  var randCN = masterCNarray[ Math.floor(Math.random() * masterCNarray.length) ];
+  var randCP = Math.random();
+  while (usedCNs.includes(randCN)) { //no duplicates
+	randCN = masterCNarray[ Math.floor(Math.random() * masterCNarray.length) ];
+  }
+  NPpair.push(randCN, randCP);
+  usedCNs.push(randCN);
+  fivecards.push(NPpair);
+}
+
+/*This function gets the five card names from a 2-D array of card names and probabilities.*/
+function getCN(index) {
+  document.write((fivecards[index])[0]);
+}
+
+/*This function gets the requested probability associated with a card, rounded to two decimal places.*/
+function getCP(index) {
+  var roundedCP = Number(Math.round((fivecards[index])[1]+'e2')+'e-2') * 100;
+  document.write(roundedCP + '%');
+}
+
+/*This section creates the drop-down menus.*/
+function addOptions1() {
+	var select1 = document.getElementById("selectCard1");
+	for (var i = 0; i < masterCNarray.length; i+=1) {
+	  var opt = document.createElement("option");
+	  opt.text = masterCNarray[i];
+	  select1.add(opt);
+	}
+}
+function addOptions2() {
+	var select2 = document.getElementById("selectCard2"); 
+	for (var i = 0; i < masterCNarray.length; i+=1) {
+	  var opt = document.createElement("option");
+	  opt.text = masterCNarray[i];
+	  select2.add(opt);
+	}
+}
+function addOptions3() {
+	var select3 = document.getElementById("selectCard3"); 
+	for (var i = 0; i < masterCNarray.length; i+=1) {
+	  var opt = document.createElement("option");
+	  opt.text = masterCNarray[i];
+	  select3.add(opt);
+	}
+}
+function addOptions4() {
+	var select4 = document.getElementById("selectCard4"); 
+	for (var i = 0; i < masterCNarray.length; i+=1) {
+	  var opt = document.createElement("option");
+	  opt.text = masterCNarray[i];
+	  select4.add(opt);
+	}
+}
+function addOptions5() {
+	var select5 = document.getElementById("selectCard5");
+	for (var i = 0; i < masterCNarray.length; i+=1) {
+	  var opt = document.createElement("option");
+	  opt.text = masterCNarray[i];
+	  select5.add(opt);
+	}
+}  
+
+/*This section makes the drop-down menus accessible to change card values if the 'net guessed wrong.*/
+function enable_value(id){
+  if (id==1) { document.getElementById("selectCard1").disabled = false; }
+  else if (id==2) { document.getElementById("selectCard2").disabled = false; }
+  else if (id==3) { document.getElementById("selectCard3").disabled = false; }
+  else if (id==4) { document.getElementById("selectCard4").disabled = false; }
+  else if (id==5) { document.getElementById("selectCard5").disabled = false; }
+}
+
+/*Revise the card name according to what the user has selected in the drop-down menus.*/
+/*----------HAVE POTENTIAL TO CORRECTLY REVISE THE CARD NAME IF OTHER ADJUSTMENTS ARE MADE TO CODE,
+ BUT DO NOT UPDATE THE WEBPAGE IN REAL TIME AS DESIRED.-----------*/
+function reviseCard1(dropdown) {
+	var e = document.getElementById("selectCard1");
+	var strUser = e.options[e.selectedIndex].text;
+	(fivecards[0])[0] = strUser;
+	document.write((fivecards[0])[0]);
+}
+function reviseCard2() {
+	var e = document.getElementById("selectCard2");
+	var strUser = e.options[e.selectedIndex].text;
+	(fivecards[1])[0] = strUser;
+	document.write((fivecards[1])[0]);
+}
+function reviseCard3() {
+	var e = document.getElementById("selectCard3");
+	var strUser = e.options[e.selectedIndex].text;
+	(fivecards[2])[0] = strUser;
+	document.write((fivecards[2])[0]);
+}
+function reviseCard4() {
+	var e = document.getElementById("selectCard4");
+	var strUser = e.options[e.selectedIndex].text;
+	(fivecards[3])[0] = strUser;
+	document.write((fivecards[3])[0]);
+}
+function reviseCard5() {
+	var e = document.getElementById("selectCard5");
+	var strUser = e.options[e.selectedIndex].text;
+	(fivecards[4])[0] = strUser;
+	document.write((fivecards[4])[0]);
+}
+</script>
+
+<!--The animated spinning loader.-->
+<center>
+<br><br><br><br><br>
+<div id="loadDiv">
+	<div class="textbox">
+		<div class="loadtext">Thinking</div>
+		<br>
+		<div class="loader"></div>
+	</div>
+</div>
+</center>
+
+<!--The div that will take the loader's place when loading is complete.-->
+<div style="display:none;" id="resultDiv" class="w3-container w3-center w3-animate-top">
+  <div class="textbox">
+     <p>
+	   <img src="placeholder.jpg" alt="Image failed to display, but it's a placeholder so it's okay." 
+	   style="float:left; margin:0 5px 5px 0;"/>
+	   <div class="resulttext">
+	     <!--Five cards, each with a modifiable value.-->
+		 <table>
+		     <tr>
+				 <td><select disabled id="selectCard1">
+				   <option selected disabled hidden><script>getCN(0)</script></option></select></td> 
+				   <script>addOptions1()</script>
+				   <td> with <script>getCP(0)</script> certainty.</td>
+				   <td> <input type="button" onclick="enable_value(1)" value="Am I wrong?"></td><br>
+			 </tr>
+			 <tr>
+				 <td><select disabled id="selectCard2">
+				   <option selected disabled hidden><script>getCN(1)</script></option></select></td> 
+				   <script>addOptions2()</script>
+				   <td> with <script>getCP(1)</script> certainty.</td>
+				   <td> <input type="button" onclick="enable_value(2)" value="Am I wrong?"></td><br>
+			 </tr>
+			 <tr>
+				 <td><select disabled id="selectCard3">
+				   <option selected disabled hidden><script>getCN(2)</script></option></select></td> <script>addOptions3()</script>
+				   <td> with <script>getCP(2)</script> certainty.</td>
+				   <td> <input type="button" onclick="enable_value(3)" value="Am I wrong?"></td><br>
+			 </tr>
+			 <tr>
+				 <td><select disabled id="selectCard4">
+				   <option selected disabled hidden><script>getCN(3)</script></option></select></td> <script>addOptions4()</script>
+				   <td> with <script>getCP(3)</script> certainty.</td>
+				   <td> <input type="button" onclick="enable_value(4)" value="Am I wrong?"></td><br>
+			 </tr>
+			 <tr>
+				 <td><select disabled id="selectCard5">
+				   <option selected disabled hidden><script>getCN(4)</script></option></select></td> <script>addOptions5()</script>
+				   <td> with <script>getCP(4)</script> certainty.</td>
+				   <td> <input type="button" onclick="enable_value(5)" value="Am I wrong?"></td><br>
+			 </tr>
+		 </table>
+
+		 <br>
+<!--Should, but does not yet, update these values as the user selects new cards from the drop down menu.-->
+	     Your Euchre hand contains <br>
+		 <b><script>getCN(0)</script>, <script>getCN(1)</script>, <script>getCN(2)</script>, <script>getCN(3)</script>, <script>getCN(4)</script>.</b>
+		 <br><br>
+		 [insert helpful advice here]
+		 <br><br><br><br><br>
+	   </div>
+	 </p>
+  </div>
+</div>
+
+<!--The code that transitions from loader to result.-->
+<script>
+var timingvar;
+function displayResult() {
+  timingvar=setTimeout(showPage, 3800); //Arbitrary timing for now, can be modified.
+}
+//Unhide the result, hide the loader.
+function showPage() {
+  document.getElementById("loadDiv").style.display="none"
+  document.getElementById("resultDiv").style.display="block"
+}
+</script>
+
+</body>
+
+</html>
