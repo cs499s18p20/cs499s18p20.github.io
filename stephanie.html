@@ -227,6 +227,50 @@
               </p>
             </div>
           </div>
+	  <div class="card">
+            <h3 class="card-header">
+              Week 8 (3/26/2018 - 4/1/2018)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Web Application Work
+              </h4>
+              <p class="card-text">
+		This week, I focused on developing the front-end of our web application a little more, specifically the webpage that is accessed when the user submits
+		their image. My goal was to realize some of the expectations we had 
+		set for the interface -- both visually and in the way it would process the card name + percent certainty data passed in to it by a user-submitted
+		image. With that accomplished, my hope is that it will now be easier to connect the front-end and back-end together over these last few weeks.
+		<br>
+		There are still a couple of bugs and incomplete sections of code to work out before I fully connect it to the main website that Rupal drew up.
+		So for now, my webpage is only available in the submitPage folder of our git repository, and not in the dropdown menu with the more
+		finished sections of our code. I have more than enough material to provide a brief overview of it here, though:
+		<br>
+		<br>
+		The user will first be taken to a loading screen while the image is given to
+		our trained neural net for analysis (since the 'net is not yet integrated with the website, I arbitrarily chose to have the loading screen run for a few seconds).
+		A still shot of the loading screen is pictured below; both the loading wheel and the ellipsis after "Thinking" are animated in practice.
+		<br>
+<img src="cs499s18p20.github.io/photos/submitPg1.png" alt="SubmitPageScreenshot1">
+		<br>
+		The user is then presented with a "results" page. Because I didn't have real values passed in for the card names or percent certainties, I wrote
+		code that generates 5 card names and 5 associated percent certainties at random, for the sake of having a finished proof of concept. Our real percent 
+		certainties are <i>much</i> higher than this!
+		<br>
+<img src="cs499s18p20.github.io/photos/submitPg2.png" alt="SubmitPageScreenshot2">
+		<br>
+		If one of the card names happens to be incorrect, the user can click the associated "Am I wrong?" button. This enables the drop down menu and allows the
+		user to select the correct card name without the risk of mistyping it.
+		<br>
+<img src="cs499s18p20.github.io/photos/submitPg3.png" alt="SubmitPageScreenshot3">
+		<br>
+		<br>
+<img src="cs499s18p20.github.io/photos/submitPg4.png" alt="SubmitPageScreenshot4">
+		<br>
+		In the final version of this webpage, the [insert helpful advice here] placeholder will be replaced by actual tips for the user based on the hand 
+		they have, if providing tips in this format proves to work well.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
