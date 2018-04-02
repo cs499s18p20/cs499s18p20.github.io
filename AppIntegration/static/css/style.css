@@ -1,0 +1,199 @@
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: 'Arial', sans-serif;
+	background-image: url("/static/webapp/bannerimg.jpg");
+    background-position: center;
+}
+
+header {
+	background: #ffffff;
+}
+
+nav {
+	margin: 0 auto;
+	text-align: center;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	display: inline-block;
+	margin-left: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+nav ul > li > a {
+	color: #000000;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+nav ul > li > a:hover {
+	color: #c1c1c1;
+}
+
+.title {
+	font-family: 'IBM Plex Mono', serif;
+	text-align: center;
+}
+
+.title > h1 {
+	font-size: 5em;
+}
+
+
+/* Replaces "File Upload" Button - allows for customizing */
+label {
+	background-color: #ffec47;
+	font-size: 16px;
+	display: inline-block;
+	cursor: pointer;
+
+}
+
+/* Hides "File Upload" Button */
+#fileupload {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+#filebutton {
+	background-color: #ffec47;
+	border: none;
+	color: black;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	border-radius: 30px;
+}
+
+
+/* Customizes "Submit" Button */
+#submitbutton {
+	cursor: pointer;
+	background-color: #ffec47;
+	border: none;
+	color: black;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	border-radius: 30px;
+}
+
+.about-us-text, .how-to-use-text, .results-text {
+	background-color: #9dc0f9;
+	width: 75%;
+    border: 25px solid #9dc0f9;
+    padding: 25px;
+    margin: 25px;
+    opacity: 0.85;
+   	font-family: 'Roboto Mono', serif;
+	text-align: left;
+}
+
+.about-us-text > h1, .how-to-use-text > h1, .results-text > h1 {
+	font-family: 'Roboto Mono', serif;
+	text-align: center;
+}
+
+.centerimage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+/*Making a circular red-and-black spinning loader, remaining steps.*/
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 75%;
+  border-top: 16px solid red;
+  border-right: 16px solid black;
+  border-bottom: 16px solid red;
+  border-left: 16px solid black;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+/*Note: webkit animation and keyframes = Safari, Chrome, later vers. of Opera.
+For Firefox and Internet Explorer functionality, can add in
+-moz-animation and -ms-animation respectively if necessary.*/
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/*Making the font 'IBM Plex Mono' for the loadtext.*/
+.loadtext {
+  font-family: 'IBM Plex Mono';
+  font-size: 25px;
+}
+/*An animated ellipsis for the loadtext.*/
+.loadtext:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis
+  steps(4,end) 1000ms infinite;
+  animation: ellipsis steps(4,end) 1000ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 5px; /* just large enough for the effect of dots "appearing" one by one */
+}
+@keyframes ellipsis {
+  to {
+    width: 25px;
+  }
+}
+@-webkit-keyframes ellipsis {
+  to {
+    width: 25px;
+  }
+}
+/*A transparent box to make the load screen easier to see against the BG.*/
+div.textbox {
+  margin: 40px;
+  background: rgba(255, 255, 255, 0.8); /* change opacity of bg only */
+}
+/*A container for my loading message and loader so that it can disappear when results are ready.*/
+#loadDiv {}
+/*The div loaded after the page is done "thinking".*/
+/*In practice, this will be after the 'net is done analyzing the image the user passes in.
+But for now, it's hard-coded to display a placeholder after a certain amount of time.*/
+#resultDiv {
+  display: none; /*non-visible by default*/
+  text-align: center;
+}
+/*Making the font 'Roboto Mono' for the result text.*/
+.resulttext {
+  font-family: 'Roboto Mono';
+  font-size: 16px;
+  margin: 40px;
+  background: rgba(255, 255, 255, 0.8);
+}
+#resultimage{
+  src: url("/static/webapp/placeholder.jpg")
+  alt: "Image failed to display, but it's a placeholder so it's okay."
+}
+}
