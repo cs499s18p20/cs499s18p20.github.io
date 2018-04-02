@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang=""en">
+<head>
+    <!--Base outline for header-->
+    {% block head %}
+	<!-- Tab Title -->
+	<title>{% block title %}{% endblock title %}Euchre Hand Recognizer</title>
+	<!-- Link to CSS Sheet -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    {% endblock head %}
+    <!--end header outline-->
+</head>
+
+<body {% block bodyAttr %}{% endblock %}>
+
+    <!-- Navigation Bar -->
+	<header>
+		<nav>
+			<ul>
+				<li><a href="home">Home</a></li>
+				<li><a href="aboutus">About Us</a></li>
+				<li><a href="howtouse">How To Use</a></li>
+			</ul>
+		</nav>
+	</header>
+
+    <!--Base outline for page content -->
+    {% block content %}
+    <div id="content">placeholder</div>
+    {% endblock content %}
+<br><br><br>
+</body>
+
+<footer style = "text-align:center">
+    {% block footer %}
+        &copy; Copyright 2018 by <a href="aboutus">Team is Mayonnaise an Instrument</a>.
+    {% endblock footer%}
+</footer>
+
+</html>

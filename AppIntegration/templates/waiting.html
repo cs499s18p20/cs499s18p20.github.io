@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Loading Results - {% endblock title %}
+
+{% block head %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/results.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/processCardList.js') }}"></script>
+    <!--Making a circular red-and-black spinning loader, step 1.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--To animate the reloaded page.-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{% endblock head %}
+
+{% block bodyAttr %} onload="displayResult();" style="margin:0;"{% endblock %}
+{% block content %}
+    <!--The animated spinning loader.-->
+    <center>
+    <br><br><br><br><br>
+    <div id="loadDiv">
+	    <div class="textbox">
+		    <div class="loadtext">Thinking</div>
+		    <br>
+		    <div class="loader"></div>
+	    </div>
+    </div>
+    </center>
+
+    <!--The div that will take the loader's place when loading is complete.-->
+    <div style="display:none;" id="resultDiv" class="w3-container w3-center w3-animate-top">
+        <div class="title">
+            <h1 id="typewriter"></h1>
+            <h2>Results</h2>
+        </div>
+        <div class="textbox">
+            <p>
+                <img src="/static/webapp/placeholder.jpg" alt="Image failed to display, but it's a placeholder so it's okay."
+                     style="float:left; margin:0 5px 5px 0;"/>
+                <div class="resulttext">
+                <!--Five cards, each with a modifiable value.-->
+                <table id="myTable">
+
+                    <tr>
+                        <td><select disabled id="selectCard1">
+                            <option selected disabled hidden><script>getCN(0)</script></option></select></td>
+                        <script>addOptions(1)</script>
+                        <td> with <script>getCP(0)</script> certainty.</td>
+                        <td> <input type="button" onclick="enable_value(1)" value="Am I wrong?"></td><br>
+                    </tr>
+                    <tr>
+                        <td><select disabled id="selectCard2">
+                            <option selected disabled hidden><script>getCN(1)</script></option></select></td>
+                        <script>addOptions(2)</script>
+                        <td> with <script>getCP(1)</script> certainty.</td>
+                        <td> <input type="button" onclick="enable_value(2)" value="Am I wrong?"></td><br>
+                    </tr>
+                    <tr>
+                        <td><select disabled id="selectCard3">
+                            <option selected disabled hidden><script>getCN(2)</script></option></select></td> <script>addOptions(3)</script>
+                        <td> with <script>getCP(2)</script> certainty.</td>
+                        <td> <input type="button" onclick="enable_value(3)" value="Am I wrong?"></td><br>
+                    </tr>
+                    <tr>
+                        <td><select disabled id="selectCard4">
+                            <option selected disabled hidden><script>getCN(3)</script></option></select></td> <script>addOptions(4)</script>
+                        <td> with <script>getCP(3)</script> certainty.</td>
+                        <td> <input type="button" onclick="enable_value(4)" value="Am I wrong?"></td><br>
+                    </tr>
+                    <tr>
+                        <td><select disabled id="selectCard5">
+                            <option selected disabled hidden><script>getCN(4)</script></option></select></td> <script>addOptions(5)</script>
+                        <td> with <script>getCP(4)</script> certainty.</td>
+                        <td> <input type="button" onclick="enable_value(5)" value="Am I wrong?"></td><br>
+                    </tr>
+                    <tr>
+                        <td><select disabled id="selectCard6">
+                            <option selected disabled hidden><script>getCN(5)</script></option></select></td> <script>addOptions(6)</script>
+                        <td> with <script>getCP(5)</script> certainty.</td>
+                        <td> <input type="button" onclick="enable_value(6)" value="Am I wrong?"></td><br>
+                    </tr>
+
+                </table>
+
+            <br>
+            <!--Should, but does not yet, update these values as the user selects new cards from the drop down menu.-->
+            Your Euchre hand contains <br>
+            <b><script>getCNs()</script></b>
+            <br><br>
+            [insert helpful advice here]
+            <br><br><br><br><br>
+        </div>
+            </p>
+        </div>
+    </div>
+
+<!--The code that transitions from loader to result.-->
+    <script>displayResult()</script>
+    <script>loadPage()</script>
+{% endblock content %}

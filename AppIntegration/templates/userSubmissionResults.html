@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ super() }}
+<!-- Link to JavaScript File -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/results.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/processCardList.js') }}"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{% endblock head %}
+
+{% block bodyAttr %} onload="typingR();" {% endblock %}
+{% block content %}
+<!--<center>-->
+    <!--<div class="results-text">-->
+        <!--<h1>Results</h1>-->
+
+        <!--{% if card_image %}-->
+        <!--<img src="/static/images/{{card_image}}" alt="test_img" class="centerimage">-->
+        <!--{% else %}-->
+        <!--<h3>No image available</h3>-->
+        <!--{% endif %}-->
+
+        <!--{% if cards %}-->
+        <!--{% for card in cards %}-->
+        <!--{% set certainty_perc = card[1]*100 %}-->
+        <!--<h3 text-align="center">{{card[0]}} detected with {{certainty_perc|round(2)}}% certainty <br></h3>-->
+        <!--{% endfor %}-->
+        <!--{% endif %}-->
+    <!--</div>-->
+<!--</center>-->
+
+<!--working on integrating table-->
+
+<center>
+<div class="w3-container w3-center w3-animate-top">
+    <div class="textbox">
+        <p>
+    	<h1 id="Rtypewriter"></h1>
+        <img src="/static/images/{{card_image}}" alt="Image failed to display, but it's a placeholder so it's okay."
+             style='height: auto; width: 40%; object-fit: contain' align="center"/>
+        <!--<div class="resulttext" style="float:left; width:60%">-->
+        <br><h2 style="text-align:center">Your Euchre hand contains:</h2><br>
+            <table id="myTable" align="center">
+            {% if cards %}
+                {% for card in cards %}
+                    {% set myId = "selectCard"+loop.index|string %}
+                <tr>
+                    <td><select disabled id="{{myId}}">
+                        <option selected disabled hidden>{{card[0]}}</option>
+                    </select></td>
+                    <script>addOptions({{loop.index|string}})</script>
+                    {% set certainty_perc = card[1]*100 %}
+                    <td> with {{ certainty_perc |round(2)}}% certainty.</td>
+                    <td><input type="button" onclick="enable_value({{loop.index|string}})" value="Am I wrong?"></td>
+                    <br>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <h3>Something went wrong.</h3>
+            {% endif %}
+            <script>getCNs({{cards|safe}})</script></b>
+            <br><br>
+            [insert helpful advice here]
+            <br><br><br><br><br>
+        <!--</div>-->
+        </p>
+    </div>
+</div>
+</center>
+
+{% endblock content %}
+
