@@ -1,0 +1,28 @@
+Since I'm posting this to this github (I plan to push to Donald's as well) 
+I'm including a little directory tree below so that you can get an idea where everything goes to make this work:
+
+-object_detection
+    -deploy_server.py //code for the app- calls all templates
+    -models
+    -test_ckpt
+      -output_inference_graph.pb
+    -static
+      -css
+          -style.css //all css style, may want to separate later for better readability
+      -images
+          *where all the images go that the user uploads, need to add code that removes image after its dont
+      -js
+          -main.js //js that the main page uses
+          -processCardList.js //js that is used for processing the card array
+          -results.js //js for results page
+      -webapp //images used for webapp design, probably should have given this a better name but oh well
+          -bannerimg.jpg
+          -placeholder.jpg
+      -templates
+          -aboutus.html 
+          -base.html //base template-all other pages are built off of this 
+          -howtouse.html
+          -mainpg.html
+          -userSubmissionResults.html //may want to make a separate page for recommendations after we get the array stuff workign
+          -waiting.html
+  
