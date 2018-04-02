@@ -152,8 +152,8 @@ function getCP(index) {
 }
 
 /*This section creates the drop-down menus.*/
-function addOptions(i) {
-	var select = document.getElementById("selectCard" + i);
+function addOptions(ind) {
+	var select = document.getElementById("selectCard" + ind);
 	for (var i = 0; i < masterCNarray.length; i+=1) {
 	  var opt = document.createElement("option");
 	  opt.text = masterCNarray[i];
