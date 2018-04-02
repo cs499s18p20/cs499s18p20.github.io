@@ -38,9 +38,6 @@ def load_image_into_numpy_array(image):
   return np.array(image.getdata()).reshape(
       (im_height, im_width, 3)).astype(np.uint8)
 
-#app = flask.Flask(__name__)
-
-#UPLOAD_FOLDER='static/images'
 detection_graph = tf.Graph()
 def load_graph(trained_model):
     with detection_graph.as_default() as graph:
@@ -50,11 +47,6 @@ def load_graph(trained_model):
             od_graph_def.ParseFromString(serialized_graph)
             tf.import_graph_def(od_graph_def, name='')
     return graph
-
-def getResult(num):
-    res = num-3
-    sleep(10)
-    return res
 
 @app.route('/home', methods=['POST', 'GET'])
 def home():
