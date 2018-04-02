@@ -40,11 +40,21 @@ def load_image_into_numpy_array(image):
 
 detection_graph = tf.Graph()
 def load_graph(trained_model):
+    #anything in following scope with be added to or run operation from detection_graph
     with detection_graph.as_default() as graph:
+    #graph object holds a network of nodes, each repr. one operation, connected to each other as
+    #inputs and outputs
+    #need to actually load the model in od_graph_def using tf.GraphDef
+    #create empty GraphDef object that were going to populate with data from our file
         od_graph_def = tf.GraphDef()
+        #google cloud storage exports as tf.gfile so you can use for saving and loading ckpts
+        #open output inf. graph for reading in binary mode
         with tf.gfile.GFile(PATH_TO_CKPT, 'rb') as fid:
+            #serialized_graph contains binary version of graph
             serialized_graph = fid.read()
+            #read data back to python
             od_graph_def.ParseFromString(serialized_graph)
+            #import graph from od_graph_def into the current default Graph
             tf.import_graph_def(od_graph_def, name='')
     return graph
 
