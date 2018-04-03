@@ -23,7 +23,7 @@ from time import sleep
 ################################global defs#########################################
 PATH_TO_CKPT = os.path.join('test_ckpt', 'output_inference_graph.pb')
 PATH_TO_LABELS = os.path.join('data', 'card_label_map.pbtxt')
-NUM_CLASSES = 4
+NUM_CLASSES = 24 # number of cards from card_label.pbtxt
 UPLOAD_FOLDER='static/images'
 IMAGE_SIZE = (12, 8)
 sys.path.append("..")
