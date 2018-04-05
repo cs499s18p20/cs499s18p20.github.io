@@ -241,7 +241,9 @@
                 using the localhost tunneling application ngrok. I used it last semester in CS498 and it proved to be suffiecient for facilitating 
                 the deployment of a server. There was a function that I found was missing in one of the libraries and so I had to get that from Chelsea's machine.             
                 On top of that, I researched a way to publicly host the flask-based server and found that ngrok works fine for a demonstration so long 
-                as our server does not experience a heavy load. It probably would not scale well running on my 8 year old HP laptop. 
+                as our server does not experience a heavy load. It probably would not scale well running on my 8 year old HP laptop. I only had to moify the
+                mainpg.html file under the templates directory. By removing the "localhost:5000" text from the "localhost:5000/result" string for the action section
+                of a form performing a 'POST', I was able to get the results to return to the client's PC screen even if it was not on a local machine. 
               </p>
             </div>         
           </div> <!-- /.Week 7 --->
