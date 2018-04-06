@@ -73,6 +73,10 @@
             front-end application, whether they are cross-platform capable, various hardware and software combinations, and whether
             the interface is user friendly and bug free. This is the team's plan to resolve most, if not all, issues related to that.
           </p>
+          <p>
+            For those unfamiliar with Euchre, here is a <a href="https://www.bicyclecards.com/how-to-play/euchre/">link</a> 
+            describing the game and how to play. 
+          </p>
           <ul>
             <li><strong>Unit Testing</strong>
             <ol>
@@ -90,7 +94,7 @@
               </li> <!-- End of Model -->
               <li>Server
                 <ol type="a">
-                  <li>Send an image to the server. Does it respond? Does it send back an image?</li>
+                  <li>Feed an image to the server in. Does it respond? Does it send back an image?</li>
                   <li>Send a non-image file to the server. Does it respond? Does it handle invalid input appropriately?</li>
                   <li>Send an image to the server, wait for its response, send corrections to the server. Does it make the corrections and send them back to the user?</li>
                   <li>Send a NULL input to the server. Does it handle it appropriately/gracefully?</li>
@@ -115,14 +119,7 @@
             </ol>
           </li> <!-- End of Integration Testing -->
             <li><strong>System Testing</strong>
-            <ol>                     
-              <li>Windows 8.1
-                <ol type="a">
-                  <li>Google Chrome</li>
-                  <li>Internet Explorer (IE)</li>
-                  <li>Mozilla Firefox</li>                  
-                </ol>
-              </li>
+            <ol>                                   
               <li>Windows 10
                 <ol type="a">
                   <li>Google Chrome</li>
@@ -133,18 +130,10 @@
               <li>Mac OSX
                 <ol type="a">
                   <li>Safari</li>
-                  <li>Google Chrome</li>
-                  <li>Internet Explorer (IE)</li>
+                  <li>Google Chrome</li>                  
                   <li>Mozilla Firefox</li>                  
                 </ol>
-              </li>
-              <li>Ubuntu
-                <ol type="a">
-                  <li>Google Chrome</li>
-                  <li>Internet Explorer (IE)</li>
-                  <li>Mozilla Firefox</li>                  
-                </ol>
-              </li>
+              </li>             
               <li>Mobile
                 <ol type="a">
                   <li>Safari</li>
@@ -159,7 +148,8 @@
             <p>
               Since different group members will have more experience developing certain parts of the application than others, 
               we will have those less experienced with the web application for testing that end of it and providing feedback to the most 
-              experienced members of each component.          
+              experienced members of each component.
+              On top of that, we will have a few peers outside the team testing the application to see if they can find any issues.
             </p>
             <p>
               The model will be tested through automated evaluation jobs that can be run on the cloud in order to speed up
