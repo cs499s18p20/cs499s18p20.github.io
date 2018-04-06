@@ -77,28 +77,97 @@
             For those unfamiliar with Euchre, here is a <a href="https://www.bicyclecards.com/how-to-play/euchre/">link</a> 
             describing the game and how to play. 
           </p>
+          <h3>Tools and Environments Used in Development</h3>
+          <p>        
+              <ul>
+                <li>
+                  <strong>OS</strong>
+                  <ol type="a">
+                    <li>Ubuntu 16.04</li>
+                    <li>Mac OSX</li>
+                    <li>Google Cloud Platform Unix Shell (Ubuntu)</li>
+                  </ol>
+                </li>
+                <li>
+                  <strong>Languages/Libraries</strong>
+                  <ol type="a">                    
+                    <li>
+                      Python 2.7 & 3.6
+                      <ul>
+                        Libraries
+                        <li>Tensorflow: Google's open source object detction machine learning framework</li>
+                        <li>Flask: An open source server side framework for useful for serving a Tenmsorflow model</li>                        
+                        <li>werkzeug: Werkzeug is a WSGI utility library for Python. More can be found <a href="http://werkzeug.pocoo.org/">here</a></li>
+                        <li>base64: This standard defines the Base16, Base32, and Base64 algorithms for encoding and decoding arbitrary binary strings into 
+                          text strings that can be safely sent by email, used as parts of URLs, or included as part of an HTTP POST request. More can be found
+                          <a href="https://docs.python.org/2/library/base64.html">here</a>.</li>
+                        <li>numpy: A powerful library for performing efficient linear algebra on matrices or lists.</li>
+                        <li>collections: This module implements specialized container datatypes providing alternatives to Python’s general purpose built-in containers, 
+                          dict, list, set, and tuple. More can be found <a href="https://docs.python.org/2/library/collections.html">here</a>.</li>
+                        <li>matplotlib: A plotting library for the Python programming language and its numerical mathematics extension NumPy. More information
+                          on this library can be found <a href="https://en.wikipedia.org/wiki/Matplotlib">here</a>.</li>
+                        <li>PIL: (aka pillow or Pillow) An image modification library. More information on it can be found <a href="https://pillow.readthedocs.io/en/5.1.x/">here</a>.</li>
+                        <li>threading: A library used for multithreading.</li>                        
+                      </ul>
+                    </li>
+                    <li>
+                      Javascript: This was used for developing the front end of the appliction in unison with the flask server developed in Python.
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <strong>Other Tools</strong>
+                  <ul>
+                    <li>Google Cloud Platform: Used the machine learning service to train on the card image data set and develop the card identification model.
+                    Also allowed the group to freeze a trained model and use it on the server.</li>
+                    <li>ngrok: An application for providing a remote PC a URL to a local machine and have the remote PC treated as if it were on 
+                    the local machine. This enabled pubic hosting of the application server instead of only being available on a local machine.</li>                    
+                  </ul>
+                </li>                
+              </ul>            
+          </p>
           <ul>
             <li><strong>Unit Testing</strong>
             <ol>
               <li>Model
                   <ol type="a">
-                    <li>Test against an image with no cards in it. Does it return “None” or something reasonable like that?</li>
+                    <li>Test against an image with no cards in it. Does it return “None”?</li>
                     <li>Test every individual card, i.e. 9-A of all four suits. Does it identify them correctly?</li>
-                    <li>Test an image of a Euchre Hand. Does it identify every truncated image correctly?</li>
-                    <li>Test an image with multiple Euchre hands. Does it identify every card image correctly?</li>
+                    <li>Test an image of a Euchre Hand. Does it identify every truncated image correctly?
+                      <p>For example, can it properly identify each card in the image below. Notice that only parts of the 
+                        cards are visible here.
+                      <br>
+                       <img src="./photos/TestImage_1.jpg">
+                      <br>
+                      </p></li>
+                    <li>
+                      Test an image with multiple Euchre hands. Does it identify every card image correctly?
+                      <p>For example, can it identify the cards in the image below?
+                        <br>
+                        <img src="./photos/TestImage_9.jpg">
+                        <br>
+                      </p>
+                    </li>                    
                     <li>Test against various Euchre hands and combinations of known card types. Does it identify every card correctly?</li>
-                    <li>Test against cards that are not included in a Euchre deck, like 8 of Hearts. Does it return “None” or something reasonable like that?</li>
+                    <li>Test against cards that are not included in a Euchre deck, like 8 of Hearts. Does it return “None”?</li>
                     <li>Test against an image with every Euchre card in it. Does it recognize all of the cards?</li>
-                    <li>Test against non-standard card images. Does it still recognize the card?</li>
+                    <li>
+                      Test against non-standard card images. Does it still recognize the card?
+                      <p>For example, can it identify the image given below.
+                        <br>
+                        <img src="./photos/AW_NineOfSpades_5.jpg">
+                        <br>
+                      </p>
+                    </li>
                   </ol>
               </li> <!-- End of Model -->
               <li>Server
                 <ol type="a">
                   <li>Feed an image to the server in. Does it respond? Does it send back an image?</li>
-                  <li>Send a non-image file to the server. Does it respond? Does it handle invalid input appropriately?</li>
+                  <li>Send a non-image file to the server. Does it respond? Does it handle invalid input by sending an error message?</li>
                   <li>Send an image to the server, wait for its response, send corrections to the server. Does it make the corrections and send them back to the user?</li>
                   <li>Send a NULL input to the server. Does it handle it appropriately/gracefully?</li>
-                  <li>Test how long it takes the server to respond to a request.</li>
+                  <li>Test how long it takes the server to respond to a request. Should be within 5-10 seconds for smaller image resolutions.</li>
                 </ol>
               </li> <!-- End of Server -->
               <li>Web Application
@@ -115,7 +184,7 @@
             <li><strong>Integration/Functional Testing</strong>
             <ol>
               <li>Go to web page. Is it available to users, i.e. can one access it outside of the local machine?</li>
-              <li>Send image and trump suit to server. Does it respond? Does it reply with the labelled and the cards in the image?</li>                            
+              <li>Send image and trump suit to server. Does it respond? Does it reply with the card labels and the labelled cards in the image?</li>                            
             </ol>
           </li> <!-- End of Integration Testing -->
             <li><strong>System Testing</strong>
