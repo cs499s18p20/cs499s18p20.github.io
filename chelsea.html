@@ -245,7 +245,7 @@
           <hr>
           <div class="card">
             <h3 class="card-header">
-              Week 8 (March 26-March 1)
+              Week 8 (March 26-April 1)
             </h3>
             <div class="card-body">
               <h4 class="card-title">
@@ -253,6 +253,40 @@
               </h4>
               <p class="card-text">
                     The bulk of this week was spent learning about Flask and how to set up jinja templates to use for our website. Since my very simple webpage/server I wrote using Python and Flask with some jinja templates in html was able to successfully use the frozen model, I built off of that this week. Some of my group members started writing some front end code to jazz our website up, so I have been integrating that in with the simple webpage as we go. So far we have an app that allows you to upload an image (the main page), then there's a waiting period while it performs the recognition (we plan to add a loading page for this time), then it outputs the image with boxes around it and a dropdown table of the cards it detected. The reason we chose the dropdown was so that the user could manually correct the cards if the model guessed wrong. I also spent time translating an About Me and How To Use page over to jinja from a mix of HTML, CSS, and JS.  
+                  <br>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+    
+    
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-centered">
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              Week 8 (April 2-April 8)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Testing Plans
+              </h4>
+              <p class="card-text">
+                    This past week we had our meeting with Paul (our instructor) regarding testing for our project. We received some really good feedback and were able to get a good idea of what needs to be done for testing our project thoroughly.
+                    To make sure that everyone is always aware of what needs to be done for our project at all times, I created a google doc with a checklist for the different components of our project that I'll be embedding in the website under the calendar.
+                    This allows everyone to be up to date with who is working on what and also for everyone to add things when we think of them. 
+                    In addition to this, I've spent some time looking into the training settings we're using for our model. After we began training with our full set, Donald noticed some issues with our accuracy that we need to address. 
+                    In particular, we were getting around the 80's for accuracy percentage when training on the full dataset, which is less than what we expected. We wondering if the model was over generalizing because we scraped 
+                    images from the web that included some that were VERY different looking from our bicycle deck. To experiment, we removed those images and Don trained on the smaller set. As expected, we saw a rise in accuracy 
+                    (I am assuming due to the fact that we were now training on only one type of deck (Bicycle) with just photographs, so it is easier for the model to generalize with) but after the accuracy rose to the 90's, we saw a steep drop off.
+                    These two training sessions concerned us a bit so we've been looking into our dataset and our training conditions.
+                    Since we are using mostly the same settings as with the tutorial we did, we're not actually sure it those settings are optimal for our project.
+                    Hopefully some research into what settings are available to us will give us an idea of what training conditions are best for us. 
                   <br>
                 </p>
             </div>
