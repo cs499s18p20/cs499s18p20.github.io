@@ -318,6 +318,42 @@
               </p>
             </div>
           </div>
+          
+          <hr>
+          <div class="card">
+            <h3 class="card-header">
+              April 2 - April 8
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Refining the Model
+              </h4>
+              <p class="card-text">
+                This week I focused on improving the model from the last results we had. While our last results weren't necessarily
+                bad, we are hoping to achieve a better detection rate. To this end, I spent most of my time this week researching
+                how to improve the performance of object detection in Tensorflow. I came across a number of helpful articles and
+                documents that will be a lot of help as we try to improve our model. For example, changing the learning rate and
+                the box anchor configurations seem to play a disproportionately large role in accurate image identification so we
+                will likely start there. 
+                <br>
+                <br>
+                The first change I experimented with this week was using fewer GPUs to train on and starting completely fresh from
+                an unaltered model. This training seems to have had some promising results. Our mean average precision (a popular
+                value used to judge the performance of a model across many different classifications - in our case, 24 cards) is
+                now the highest we've achieved with all 24 cards at 0.91 (it ranges from 0 to 1, with 1 being perfect identification of
+                every test image). 
+                <br>
+                <br>
+                We will likely experiment with the anchor point configurations and learning rate throughout this week to see if we can
+                push this precision even higher. Luckily for us, the automated testing jobs we run are relatively easy to setup and 
+                evaluate so we should be able to tell pretty quickly if these changes help.
+                <br>
+                <br>
+                In addition to my work on the model, this week I contributed to some of our webpages as well as our documentation for
+                our code that we will submit for the review this week.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
