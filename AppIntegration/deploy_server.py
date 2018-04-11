@@ -14,8 +14,8 @@ from collections import defaultdict
 from matplotlib import pyplot as plt
 from PIL import Image
 sys.path.append("..")
-from utils import label_map_util
-from utils import visualization_utils as vis_util
+from object_detection.utils import label_map_util
+from object_detection.utils import visualization_utils as vis_util
 from threading import Thread
 from time import sleep
 ####################################################################################
@@ -23,7 +23,7 @@ from time import sleep
 ################################global defs#########################################
 PATH_TO_CKPT = os.path.join('test_ckpt', 'output_inference_graph.pb')
 PATH_TO_LABELS = os.path.join('data', 'card_label_map.pbtxt')
-NUM_CLASSES = 24 # number of cards from card_label.pbtxt
+NUM_CLASSES = 24
 UPLOAD_FOLDER='static/images'
 IMAGE_SIZE = (12, 8)
 sys.path.append("..")
@@ -58,6 +58,23 @@ def load_graph(trained_model):
             tf.import_graph_def(od_graph_def, name='')
     return graph
 
+"""
+# Looks for files with 'ext' extensions in the input directory 'dir_name'
+# and removes all files containing the matching extension
+# Returns the number of files removed from the directory
+"""
+def clear_images_dir(dir_name, ext):
+    num_files_removed = 0
+    for file in os.listdir(dir_name):
+        if(file.endswith(ext)):
+            try:
+                #print("Freeing up disk space", file)
+                os.remove(os.path.join(dir_name,file))
+                num_files_removed += 1
+            except:
+                print("Failed to remove", file)
+    return num_files_removed
+
 @app.route('/home', methods=['POST', 'GET'])
 def home():
     return render_template('mainpg.html')
@@ -74,10 +91,11 @@ def howtouse():
 def waiting():
     return render_template('waiting.html')
 
-@app.route('/result',methods = ['POST', 'GET'])
+@app.route('/result',methods = ['POST'])
 def result():
    if request.method == 'POST':
        print("Uploading file to server...")
+       clear_images_dir(UPLOAD_FOLDER, '.jpg')
        upload_file = request.files['file']
        filename = secure_filename(upload_file.filename)
        upload_file.save(os.path.join(UPLOAD_FOLDER, filename))
@@ -117,6 +135,7 @@ def result():
                    np.squeeze(classes).astype(np.int32),
                    np.squeeze(scores),
                    category_index)
+	       #print("Card list",card_list, "scores:", scores, "classes", classes, "num_detections:", num_detections)
                #edited vis_util func to return PIL image
                im_result = vis_util.visualize_boxes_and_labels_on_image_array(
                    image_np,
@@ -128,9 +147,17 @@ def result():
                     )
                #for debugging
                print(card_list)
+	       #print(request.base_url)
+	       #print(category_index)
                #scale image and save to display
                im_result.thumbnail((250,250))
                im_result.save(image_path[:-4] + '.jpg', "JPEG")
+	       """
+	       try:
+			os.remove(os.path.join(UPLOAD_FOLDER,filename))
+	       except:
+	       		print("Unable to remove file:", os.path.join(UPLOAD_FOLDER,filename))
+	       """
                return render_template('userSubmissionResults.html', cards=card_list, card_image = filename[:-4] +".jpg")
 
 
@@ -139,5 +166,4 @@ print("Loading graph...")
 app.graph=load_graph(PATH_TO_CKPT)
 print("Starting server...")
 if __name__ == '__main__':
-    app.run(port=int("5000"), debug=True, use_reloader=False)
-
+    app.run(host='0.0.0.0', port=int("5000"), debug=False, use_reloader=False)
