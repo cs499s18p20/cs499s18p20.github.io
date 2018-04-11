@@ -226,7 +226,7 @@
                 a Tensorflow model server using it. First, I will have to figure out how to freeze the model so that it is compatible with Docker.
               </p>
             </div>         
-          </div> <!-- /.Week 7 --->
+          </div> <!-- /.Week 8 --->
         <div class="card">
             <h3 class="card-header">
               Week 9 - 04/03/2018 - 04/10/2018
@@ -246,7 +246,27 @@
                 of a form performing a 'POST', I was able to get the results to return to the client's PC screen even if it was not on a local machine. 
               </p>
             </div>         
-          </div> <!-- /.Week 7 --->
+          </div> <!-- /.Week 9 --->
+        <div class="card">
+            <h3 class="card-header">
+              Week 10 - 04/11/2018 - 04/18/2018
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Serv(er)ing up an app! (continued)
+              </h4>
+              <p class="card-text">                                
+                I met with the group to discuss some concerning things I had noticed when setting up the server such as when submitting an image for labeling,
+                the model would classify a single card object as two different card labels. After discussing the issues woth the group, we determined that there 
+                were a couple of things we could try including tweaking the model's learning rate, turning off a setting which mirrored the images when training
+                in order to manufacture an extra training example, trying more accurate models, and a few other things. Another thing we discussed was checking 
+                the lowest precision card, which was the King of Diamonds, and seeing if our image quality for that card could use improvement. So, I 
+                spent time re-taking images and labeling them before submitting them to our image and annotation repository for training the model.
+                On top of those things, I created a function for the server that would remove images it received for labeling requests so that it would not 
+                encumber the machine which hosted it. 
+              </p>
+            </div>         
+          </div> <!-- /.Week 9 --->
         </div>                 
       </div>
     </div>
