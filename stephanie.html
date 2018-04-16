@@ -307,14 +307,15 @@
             </h3>
             <div class="card-body">
               <h4 class="card-title">
-                Approaching the end!
+                Finishing touches...
               </h4>
               <p class="card-text">
 		This week mostly involved seeing how the model was able to do in training accuracy given various adjustments to the
-		dataset, and from there how it performed in testing. It seems that it has some trouble with multiple cards in an image,
-		though the images given to it were very truncated (the cards stacked on top of each other) and this may have presented
-		an issue. To this end, I added images to our testing set where the cards in the Euchre hand are all side by side in a row
-		or are in
+		dataset, and from there how it performed in testing. Training accuracy is pretty good for the most part! 
+		It does seem that the model has some trouble with identifying all six cards in a multi-card image,
+		though the images given to it so far have been very truncated (the cards stacked on top of each other) and this may 
+		have presented an issue. To this end, I added images to our testing set where the cards in the Euchre hand are all 
+		side by side in a row or are in
 		a 2x3 "matrix", with no overlapping cards in either case, so hopefully the model will be able to better identify those.
 		The model also seems to perform best with the cards at a certain distance away from the camera and on a plain background,
 		which luckily is the format our test images (and most likely the in-game user's images) will take.
