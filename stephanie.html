@@ -301,6 +301,33 @@
               </p>
             </div>
           </div>
+	  <div class="card">
+            <h3 class="card-header">
+              Week 10 (4/9/2018 - 4/15/2018)
+            </h3>
+            <div class="card-body">
+              <h4 class="card-title">
+                Approaching the end!
+              </h4>
+              <p class="card-text">
+		This week mostly involved seeing how the model was able to do in training accuracy given various adjustments to the
+		dataset, and from there how it performed in testing. It seems that it has some trouble with multiple cards in an image,
+		though the images given to it were very truncated (the cards stacked on top of each other) and this may have presented
+		an issue. To this end, I added images to our testing set where the cards in the Euchre hand are all side by side in a row
+		or are in
+		a 2x3 "matrix", with no overlapping cards in either case, so hopefully the model will be able to better identify those.
+		The model also seems to perform best with the cards at a certain distance away from the camera and on a plain background,
+		which luckily is the format our test images (and most likely the in-game user's images) will take.
+		<br>
+		We also had our code review. Based on the feedback from that, we will be adding the documentation and comments from our
+		README file into our code. We will also be indicating which parts of the neural net code we had to modify to get it to
+		switch functionality from pet identification to card identification.
+		<br>
+		Going forward, we have our practice presentation coming up soon, so we will be focusing on that for the most part next
+		week, along with a few final tweaks to the web application and the training/testing of the model.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
