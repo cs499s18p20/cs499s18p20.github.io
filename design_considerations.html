@@ -77,15 +77,34 @@
           <h2>Design Considerations / Implementation Issues</h2>          
           <hr>
           <ul>
-            <li>One issue we found during testing was that the model does not recognize multiple cards in an image very well.</li>
-            <li>Another issue was that the model does not perform well with non-standard card images.</li>
-            <li>Since the card resolutions were so small, we could only use images where the card was fairly close to the camera, leaving less opportunity to
-                have a variety in the card images.</li>
-            <li>The initial project was supposed to involve creating a model that would identify all 52 playing cards 
-                in a stnadard palying deck. However due to time constraints, and after discussing it with the customers, this
-                was changed to work with 24 cards that make up a <a href="https://www.bicyclecards.com/how-to-play/euchre/">Euchre</a>
-                deck.
-            </li>
+            <li><strong>Multiple Object Recognition:</strong> We originally developed our model with the belief that training with 
+              only single object images would allow us to still recognize multiple objects in an image when testing. We found
+              that this was not exactly the case once we began testing more thoroughly near the end of the project. Given a group
+              of 6 cards, the model will typically only correctly identify 4-5 of the cards. This is not horrible but we believe
+              expanding the training dataset to include more objects in images would potentially help with this.</li>
+            <li><strong>Non Standard Card Images:</strong> The model does not perform well with card images that are not bicycle
+              cards. This is likely due to the fact that the vast majority of the images we annotated were bicycle cards since
+              we took most of the images ourselves. We made this decision since bicycle cards are a very popular card brand and 
+              are very prevalent in games. Expanding the dataset with more non-bicycle card images would likely help resolve this
+              problem but we felt we did not have the time to accomplish this ourselves this semester. </li>
+            <li><strong>Small Card Objects:</strong> We originally ran into a problem with identifying cards in high resolution
+              photos. In order to remedy this, we decided to downsize all of our photos to a much more reasonable 320x240 image
+              size. The biggest downside of this change is that now images where the card is far from the camera are very
+              difficult for the model to identify since the features of the card are hard to discern. We feel that this isn't
+              a huge problem however, since it can be resolved by cropping and then resizing or by moving closer before taking
+              the image.</li>
+            <li><strong>Limited Dataset:</strong> Initially, we intended to create a dataset consisting of all 52 cards since every
+              card is used in poker. After realizing how monumental this task would be, however, we discussed it with our customer
+              and decided to work with only the 24 cards of a standard 
+              <a href="https://www.bicyclecards.com/how-to-play/euchre/">Euchre</a> deck instead.</li>
+            <li><strong>Working With Windows:</strong> We quickly found that using the windows operating system to work with
+              Tensorflow was a rather pointless endeavor. Future development on this project should definitely use Linux, MacOS,
+              or some kind of shell to properly interface with Tensorflow and its various libraries.</li>
+            <li><strong>Low Precision With Many Classifications:</strong> After expanding our dataset to include all 24 cards in
+              a Euchre deck, we found that our original precision (when we tested with just 4 cards) took a significant hit. We 
+              didn't anticipate that expanding the number of classifications would have such a large effect and thus our dataset
+              was likely too small to work for such a large number of cards. Our results are still good in general (achieving up
+              to a 0.92 precision) but not quite where we were before.</li>
           </ul>
         </div>    
       </div>

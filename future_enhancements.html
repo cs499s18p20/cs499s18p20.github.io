@@ -77,12 +77,25 @@
           <h2>Future Enhancements / Maintenance</h2>          
           <hr>
           <ul>
-            <li>Expand image library to include more difficult images to classify such as truncated images</li>
-            <li>Expand image library to include more non-standard card images to improve generality</li>
-            <li>Expand card library to include the other 28 card types for poker and other game types</li>
-            <li>Add recommendation system to the application for playing Euchre and eventually poker</li>
-            <li>Optimize image input to the model for higher quality training data</li>
-            <li>Add features to the application such as the ability to add and remove recognized cards in an image</li>
+            <li><strong>Expansion of Dataset:</strong> This is perhaps the single most important improvement
+              that could be made to our current model. Most of our issues (not working well with multiple
+              cards in the same image, struggling with non-standard cards, etc.) could be improved or perhaps
+              even resolved by simply creating an even larger and even more robust dataset. In addition, the other
+              28 cards in a standard deck could also be added to the model in order to change its use over to
+              identifying poker hands.</li>
+            <li><strong>Improvement of Generality:</strong> Expanding the image library to include more non-standard
+              card images would likely allow the model to generalize better across card types it has never encountered
+              before. This may be a monumental task, however, with how many different variations of cards there are.</li>
+            <li><strong>Recommendation System:</strong> A useful additional feature of the web application would be allowing
+              the ability for the user to receive suggestions based on their current hand and even the current state of the
+              game (as input by the user).</li>
+            <li><strong>Experiment with Different Models:</strong> We primarily focused on maximizing the precision of a
+              single model throughout our training process (specifically the faster_rcnn_resnet101 model). Exploring 
+              different models may offer advantages over this model.</li>
+            <li><strong>Closed Loop Features:</strong> An extremely cool addition to the web application would be adding
+              the ability for users to provide feedback about not only if an identification is incorrect but also if an
+              identification is missed. The user could then draw a box around any mislabeled objects and the model would
+              use this input to further train itself.</li>
           </ul>
         </div>
       </div>
